@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6EAE3ADBD7A141E9B115B6C0 /* DoppelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C65EC0663455EB5AC602C /* DoppelApp.swift */; };
+		5F05AB39A3BC40B7AD2FF1C3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A5BC9F0CE4279AC1341DF /* Theme.swift */; };
+		CD7B74F1BB4C4213B437E6B8 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABA44F17FE4DCBB924334E /* Typography.swift */; };
+		46868135AA5442CCA9357F32 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7250F5D94784BE196937FCE /* Spacing.swift */; };
+		55DBFB54599440889192FACA /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */; };
+		C583253E519D4351BD4870A9 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */; };
+		D7002180E33E49BA9E55F510 /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9225E0530F7844EC836D6AB5 /* AvatarStore.swift */; };
+		52F485B2182A43C9BA440C89 /* AvatarFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */; };
+		421B041673BC4C30BCD69D2D /* AvatarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85F32F74D24B61B4335585 /* AvatarBody.swift */; };
+		BCB2A497A1D1468BBC70F98D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390376877BF4D1B87CD2C7B /* AvatarView.swift */; };
+		901CF3DA94D54102A944F63E /* AvatarCustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */; };
+		B0540FBD8F3B4604ACC82ABD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD9D14F774ADE96615722 /* HomeView.swift */; };
+		674E5C5342FA461880F9C6DF /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032A36E374247048DD5A70F /* GlowBackground.swift */; };
+		8B014C34D70C452C9045C6D2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */; };
+		7F474C405B884F6696E11DEB /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */; };
+		F542EDDFA33542AC805B2F2E /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09411E6B1304CBB82E41D46 /* TraitPicker.swift */; };
+		1831089A7333419F9071CEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470A0B84489F4F5DBCA90371 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A3C65EC0663455EB5AC602C /* DoppelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoppelApp.swift; sourceTree = "<group>"; };
+		652A5BC9F0CE4279AC1341DF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		17ABA44F17FE4DCBB924334E /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		B7250F5D94784BE196937FCE /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
+		9225E0530F7844EC836D6AB5 /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
+		2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarFace.swift; sourceTree = "<group>"; };
+		BC85F32F74D24B61B4335585 /* AvatarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBody.swift; sourceTree = "<group>"; };
+		9390376877BF4D1B87CD2C7B /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomizeView.swift; sourceTree = "<group>"; };
+		FD8CD9D14F774ADE96615722 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5032A36E374247048DD5A70F /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
+		786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		A09411E6B1304CBB82E41D46 /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
+		470A0B84489F4F5DBCA90371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F945B170D6564359BC7A23D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5E2B2416B21B4C598D62E12F /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E6D92CA4B764BBAB1C0562C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC5D88920E794ACFB949C2DB = {
+			isa = PBXGroup;
+			children = (
+				E7FEF7C2ACFE4D40AEEBC6EC /* Doppel */,
+				304140A7F8144420A7491421 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		304140A7F8144420A7491421 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E2B2416B21B4C598D62E12F /* Doppel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7FEF7C2ACFE4D40AEEBC6EC /* Doppel */ = {
+			isa = PBXGroup;
+			children = (
+				F3275E9791B34C50BD147A06 /* App */,
+				ABF9E326CE3D4106AE819E37 /* DesignSystem */,
+				84941CE1881246C98205E46F /* Avatar */,
+				D014DB1F77734EFF9827EF84 /* Home */,
+				B97951CB26F641FDA3290228 /* Components */,
+				6255D19FA5334667A6E82C16 /* Resources */,
+				3967CC855F904A7EABB70C96 /* Preview Content */,
+			);
+			path = Doppel;
+			sourceTree = "<group>";
+		};
+		F3275E9791B34C50BD147A06 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2A3C65EC0663455EB5AC602C /* DoppelApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ABF9E326CE3D4106AE819E37 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				652A5BC9F0CE4279AC1341DF /* Theme.swift */,
+				17ABA44F17FE4DCBB924334E /* Typography.swift */,
+				B7250F5D94784BE196937FCE /* Spacing.swift */,
+				7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		84941CE1881246C98205E46F /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */,
+				9225E0530F7844EC836D6AB5 /* AvatarStore.swift */,
+				2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */,
+				BC85F32F74D24B61B4335585 /* AvatarBody.swift */,
+				9390376877BF4D1B87CD2C7B /* AvatarView.swift */,
+				69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
+		D014DB1F77734EFF9827EF84 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD9D14F774ADE96615722 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B97951CB26F641FDA3290228 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5032A36E374247048DD5A70F /* GlowBackground.swift */,
+				786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */,
+				941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */,
+				A09411E6B1304CBB82E41D46 /* TraitPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6255D19FA5334667A6E82C16 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				470A0B84489F4F5DBCA90371 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3967CC855F904A7EABB70C96 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F945B170D6564359BC7A23D7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02651C5005C24288A7947693 /* Doppel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7955C77E43B042CF86745297 /* Build configuration list for PBXNativeTarget "Doppel" */;
+			buildPhases = (
+				D137D79FE4B7453A8E6E5ACF /* Sources */,
+				7E6D92CA4B764BBAB1C0562C /* Frameworks */,
+				D7EE23754AF24A0D84CE4586 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Doppel;
+			productName = Doppel;
+			productReference = 5E2B2416B21B4C598D62E12F /* Doppel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1633A3B6799B4BD99D3BBE54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					02651C5005C24288A7947693 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 9AF6D16E3D994A64BFEC8144 /* Build configuration list for PBXProject "Doppel" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC5D88920E794ACFB949C2DB;
+			productRefGroup = 304140A7F8144420A7491421 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02651C5005C24288A7947693 /* Doppel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7EE23754AF24A0D84CE4586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1831089A7333419F9071CEB3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D137D79FE4B7453A8E6E5ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EAE3ADBD7A141E9B115B6C0 /* DoppelApp.swift in Sources */,
+				5F05AB39A3BC40B7AD2FF1C3 /* Theme.swift in Sources */,
+				CD7B74F1BB4C4213B437E6B8 /* Typography.swift in Sources */,
+				46868135AA5442CCA9357F32 /* Spacing.swift in Sources */,
+				55DBFB54599440889192FACA /* ViewModifiers.swift in Sources */,
+				C583253E519D4351BD4870A9 /* AvatarModel.swift in Sources */,
+				D7002180E33E49BA9E55F510 /* AvatarStore.swift in Sources */,
+				52F485B2182A43C9BA440C89 /* AvatarFace.swift in Sources */,
+				421B041673BC4C30BCD69D2D /* AvatarBody.swift in Sources */,
+				BCB2A497A1D1468BBC70F98D /* AvatarView.swift in Sources */,
+				901CF3DA94D54102A944F63E /* AvatarCustomizeView.swift in Sources */,
+				B0540FBD8F3B4604ACC82ABD /* HomeView.swift in Sources */,
+				674E5C5342FA461880F9C6DF /* GlowBackground.swift in Sources */,
+				8B014C34D70C452C9045C6D2 /* PrimaryButton.swift in Sources */,
+				7F474C405B884F6696E11DEB /* IconButton.swift in Sources */,
+				F542EDDFA33542AC805B2F2E /* TraitPicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		443821120D1F4A33A8284B96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6EDA4BA21AA1451FB63190ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3286859027104D9CB9BF55C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Doppel/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Doppel;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doppel.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		08D0C8C334504AE9BE9F68EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Doppel/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Doppel;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doppel.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AF6D16E3D994A64BFEC8144 /* Build configuration list for PBXProject "Doppel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				443821120D1F4A33A8284B96 /* Debug */,
+				6EDA4BA21AA1451FB63190ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7955C77E43B042CF86745297 /* Build configuration list for PBXNativeTarget "Doppel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3286859027104D9CB9BF55C2 /* Debug */,
+				08D0C8C334504AE9BE9F68EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1633A3B6799B4BD99D3BBE54 /* Project object */;
+}
