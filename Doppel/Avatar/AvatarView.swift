@@ -61,7 +61,7 @@ struct AvatarView: View {
         .aspectRatio(1, contentMode: .fit)
         .onAppear { if animated { startAnimations() } }
         .onDisappear { stopAnimations() }
-        .accessibilityLabel("Your Doppel avatar")
+        .accessibilityLabel("Your Bamboo avatar")
     }
 
     private func startAnimations() {

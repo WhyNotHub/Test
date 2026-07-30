@@ -93,9 +93,18 @@ struct HomeView: View {
 
             Spacer()
 
-            IconButton(systemName: "gearshape.fill", style: .accent, size: 48) {
+            // Bare glyph, no circle/fill behind it -- a background read as
+            // decoration competing with the icon itself. 44pt tap target
+            // kept for touch ergonomics even though only the icon shows.
+            Button {
                 showSettings = true
+            } label: {
+                Image(systemName: "line.3.horizontal")
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundStyle(DoppelColor.textPrimary)
+                    .frame(width: 44, height: 44)
             }
+            .buttonStyle(PressableStyle())
         }
         .padding(.top, DoppelSpacing.sm)
     }
@@ -134,14 +143,9 @@ struct HomeView: View {
             draftName = store.userName
             showRename = true
         } label: {
-            HStack(spacing: DoppelSpacing.xs) {
-                Text(store.userName)
-                    .font(DoppelFont.title(34))
-                    .foregroundStyle(DoppelColor.textPrimary)
-                Image(systemName: "pencil")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(DoppelColor.textTertiary)
-            }
+            Text(store.userName)
+                .font(DoppelFont.title(34))
+                .foregroundStyle(DoppelColor.textPrimary)
         }
         .buttonStyle(PressableStyle())
     }
@@ -230,7 +234,7 @@ struct ComingSoonView: View {
                     .font(DoppelFont.headline(22))
                     .foregroundStyle(DoppelColor.textPrimary)
 
-                Text("This is where Doppel keeps going.")
+                Text("This is where Bamboo keeps going.")
                     .font(DoppelFont.body(15))
                     .foregroundStyle(DoppelColor.textSecondary)
             }

@@ -9,11 +9,6 @@ struct IconButton: View {
         /// action in a group (e.g. a sheet's Done), same high-contrast
         /// language as the Bamboo CTA and selected-state chips.
         case solid
-        /// Flat violet fill, white glyph -- for a persistent nav icon
-        /// that should read as a real destination rather than a small
-        /// utility glyph. One deliberate spot of the signature accent
-        /// color against an otherwise monochrome UI.
-        case accent
     }
 
     var systemName: String
@@ -38,7 +33,6 @@ struct IconButton: View {
         switch style {
         case .glass: DoppelColor.textPrimary
         case .solid: DoppelColor.void
-        case .accent: .white
         }
     }
 
@@ -60,8 +54,6 @@ struct IconButton: View {
                 )
         case .solid:
             Circle().fill(DoppelColor.textPrimary)
-        case .accent:
-            Circle().fill(DoppelColor.violet)
         }
     }
 }
@@ -70,7 +62,6 @@ struct IconButton: View {
     HStack(spacing: 16) {
         IconButton(systemName: "arrow.counterclockwise") {}
         IconButton(systemName: "checkmark", style: .solid) {}
-        IconButton(systemName: "gearshape.fill", style: .accent, size: 48) {}
     }
     .padding()
     .background(DoppelColor.void)

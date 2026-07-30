@@ -1,25 +1,23 @@
 import SwiftUI
 import UIKit
 
-/// The days of the current calendar month, scrollable but bounded to this
-/// month (not a continuous multi-month range). There's no separate
-/// "selected" state: the highlighted day is whichever one is centered, but
-/// it only commits once scrolling settles (debounced ~140ms of no
-/// movement) rather than flickering between cells on every scroll tick — a
-/// live per-frame highlight looked chaotic during a fast drag. A subtle
-/// selection haptic fires on each settle. Tapping a day also opens a sheet
-/// to toggle that day's activity badges, so a tap commits the highlight
-/// immediately rather than waiting on the settle debounce.
+/// Always exactly five days, the middle one always the current day --
+/// centered by construction, not by scroll-physics tuned against a guessed
+/// viewport width. The previous version was a free-scrolling strip
+/// (ScrollView + scrollPosition + viewAligned, centered via a hand-tuned
+/// padding trick) that turned out crooked and janky on a real device:
+/// "centered" depended on scroll math that had never actually been run.
+/// A fixed row of five cells can't be off-center -- there's no scroll
+/// state to get wrong. Tapping any of the five re-centers the strip on
+/// that day and opens its editor, so walking a few days over is just a
+/// couple of taps on an edge cell rather than a drag gesture.
 struct DayStrip: View {
     var onSelect: (Date) -> Void = { _ in }
 
     private let calendar = Calendar.current
-    private let days: [Date]
     private let feedbackGenerator = UISelectionFeedbackGenerator()
 
-    @State private var scrollTrackedDate: Date?
-    @State private var currentDate: Date
-    @State private var settleTask: Task<Void, Never>?
+    @State private var centerDate: Date
     @State private var dayActivities: [Date: Set<DayActivity>]
     @State private var categoryInfo: [DayActivity: ActivityCategoryInfo] = DayActivity.defaultCategoryInfo
     @State private var showDayEditor = false
@@ -29,57 +27,39 @@ struct DayStrip: View {
         self.onSelect = onSelect
 
         let cal = Calendar.current
-        let now = Date()
-        let today = cal.startOfDay(for: now)
-        let startOfMonth = cal.date(from: cal.dateComponents([.year, .month], from: now)) ?? today
-        let dayRange = cal.range(of: .day, in: .month, for: now) ?? 1..<32
-        let generatedDays = dayRange.compactMap { cal.date(byAdding: .day, value: $0 - 1, to: startOfMonth) }
-        days = generatedDays
+        let today = cal.startOfDay(for: Date())
+        _centerDate = State(initialValue: today)
 
-        _currentDate = State(initialValue: today)
-        _scrollTrackedDate = State(initialValue: today)
-
+        // Seed a few weeks either side of today from the old deterministic
+        // demo pattern, so there's something to see while tapping around
+        // near launch. Any day outside this range just starts empty, same
+        // as a brand new day always would.
         var seededActivities: [Date: Set<DayActivity>] = [:]
-        for (index, day) in generatedDays.enumerated() {
-            seededActivities[day] = Set(DayActivity.demo(for: index))
+        for offset in -21...21 {
+            guard let day = cal.date(byAdding: .day, value: offset, to: today) else { continue }
+            seededActivities[day] = Set(DayActivity.demo(for: cal.component(.day, from: day)))
         }
         _dayActivities = State(initialValue: seededActivities)
     }
 
+    private var visibleDays: [Date] {
+        (-2...2).compactMap { calendar.date(byAdding: .day, value: $0, to: centerDate) }
+    }
+
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 6) {
-                ForEach(days, id: \.self) { day in
-                    DayCell(
-                        date: day,
-                        isSelected: calendar.isDate(day, inSameDayAs: currentDate),
-                        activities: dayActivities[day] ?? [],
-                        categoryInfo: categoryInfo
-                    )
-                    .id(day)
-                    .onTapGesture {
-                        selectAndEdit(day)
-                    }
+        HStack(spacing: 4) {
+            ForEach(visibleDays, id: \.self) { day in
+                DayCell(
+                    date: day,
+                    isSelected: calendar.isDate(day, inSameDayAs: centerDate),
+                    activities: dayActivities[day] ?? [],
+                    categoryInfo: categoryInfo
+                )
+                .frame(maxWidth: .infinity)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    selectAndEdit(day)
                 }
-            }
-            .scrollTargetLayout()
-            .padding(.horizontal, 130)
-        }
-        .scrollPosition(id: $scrollTrackedDate, anchor: .center)
-        .scrollTargetBehavior(.viewAligned)
-        .frame(height: 84)
-        .mask(edgeFade)
-        .onChange(of: scrollTrackedDate) { _, newValue in
-            settleTask?.cancel()
-            guard let newValue else { return }
-            settleTask = Task {
-                try? await Task.sleep(nanoseconds: 140_000_000)
-                guard !Task.isCancelled else { return }
-                withAnimation(.easeOut(duration: 0.3)) {
-                    currentDate = newValue
-                }
-                feedbackGenerator.selectionChanged()
-                onSelect(newValue)
             }
         }
         .sheet(isPresented: $showDayEditor) {
@@ -94,22 +74,20 @@ struct DayStrip: View {
         }
     }
 
-    /// Tapping a day both scrolls it to center and opens its editor. The
-    /// highlight is committed synchronously here rather than left to the
-    /// scroll-settle debounce above: that debounce exists to smooth out
-    /// fast drags, but a deliberate tap already tells us exactly which day
-    /// won, so there's no reason to wait.
+    /// Tapping any of the five visible days re-centers the strip on it and
+    /// opens its editor -- both happen from the same tap, no separate
+    /// "browse" vs "select" gesture to keep in sync.
     private func selectAndEdit(_ day: Date) {
-        scrollTrackedDate = day
-        settleTask?.cancel()
-        if !calendar.isDate(day, inSameDayAs: currentDate) {
-            withAnimation(.easeOut(duration: 0.3)) {
-                currentDate = day
-            }
-            feedbackGenerator.selectionChanged()
-            onSelect(day)
+        let startOfDay = calendar.startOfDay(for: day)
+        let moved = !calendar.isDate(startOfDay, inSameDayAs: centerDate)
+        withAnimation(.easeOut(duration: 0.25)) {
+            centerDate = startOfDay
         }
-        editingDay = day
+        if moved {
+            feedbackGenerator.selectionChanged()
+            onSelect(startOfDay)
+        }
+        editingDay = startOfDay
         showDayEditor = true
     }
 
@@ -117,18 +95,6 @@ struct DayStrip: View {
         Binding(
             get: { dayActivities[day] ?? [] },
             set: { dayActivities[day] = $0 }
-        )
-    }
-
-    private var edgeFade: LinearGradient {
-        LinearGradient(
-            stops: [
-                .init(color: .clear, location: 0),
-                .init(color: .black, location: 0.05),
-                .init(color: .black, location: 0.95),
-                .init(color: .clear, location: 1)
-            ],
-            startPoint: .leading, endPoint: .trailing
         )
     }
 }
@@ -238,7 +204,7 @@ private struct DayCell: View {
             .frame(height: 13)
             .animation(.spring(response: 0.3, dampingFraction: 0.7), value: activities)
         }
-        .frame(width: 52, height: 84)
+        .frame(height: 84)
     }
 }
 
