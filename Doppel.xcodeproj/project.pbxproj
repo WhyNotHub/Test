@@ -24,6 +24,9 @@
 		B34980F362D44F5AA63509AF /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A4EA720A040F290B10C38 /* IconButton.swift */; };
 		695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */; };
 		75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693926F677243C7B00ADB6A /* DayStrip.swift */; };
+		6896F3C0C19249EFAF42C767 /* SupabaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834829E223A546AE83C04086 /* SupabaseConfig.swift */; };
+		0FCAAD3A249049AEB35F42D5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C565EA0820D4490188F7BE99 /* AuthService.swift */; };
+		2A0BEF3A11ED4AD2B0819A03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249E25CACD5F4B6A99331F65 /* LoginView.swift */; };
 		9F84C8B6FE804487B19DBEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3D4F4D6514E399E9CDCED /* Assets.xcassets */; };
 		569239B9475D4D5BBE3F1AF3 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DAA46DAF3E4438BA418AC3E /* Outfit-Regular.ttf */; };
 		3EAEE5CDFD8A46DC97600FB7 /* Outfit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD9756781148455CAAF37AA9 /* Outfit-Medium.ttf */; };
@@ -51,6 +54,9 @@
 		025A4EA720A040F290B10C38 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
 		8693926F677243C7B00ADB6A /* DayStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStrip.swift; sourceTree = "<group>"; };
+		834829E223A546AE83C04086 /* SupabaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseConfig.swift; sourceTree = "<group>"; };
+		C565EA0820D4490188F7BE99 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		249E25CACD5F4B6A99331F65 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8EE3D4F4D6514E399E9CDCED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168539D8D17449BFB12F572A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E34F6B6CC5D54292A6A10E54 /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +104,7 @@
 				55EAFE3353FA4F9D80D5E908 /* Avatar */,
 				3D52A5ABE3D34939B30BA0A7 /* Home */,
 				DF3CE3CC762A42529A1959E2 /* Components */,
+				39E9A08954A24AE5A115E68C /* Auth */,
 				2B6436FAE5D4426D850F5FCE /* Resources */,
 				C7E08A7F9AF04FA2B5EAA89C /* Preview Content */,
 				D3A5CF1D1CCF44A2825F507D /* Info.plist */,
@@ -155,6 +162,16 @@
 				8693926F677243C7B00ADB6A /* DayStrip.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		39E9A08954A24AE5A115E68C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				834829E223A546AE83C04086 /* SupabaseConfig.swift */,
+				C565EA0820D4490188F7BE99 /* AuthService.swift */,
+				249E25CACD5F4B6A99331F65 /* LoginView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		2B6436FAE5D4426D850F5FCE /* Resources */ = {
@@ -279,6 +296,9 @@
 				B34980F362D44F5AA63509AF /* IconButton.swift in Sources */,
 				695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */,
 				75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */,
+				6896F3C0C19249EFAF42C767 /* SupabaseConfig.swift in Sources */,
+				0FCAAD3A249049AEB35F42D5 /* AuthService.swift in Sources */,
+				2A0BEF3A11ED4AD2B0819A03 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

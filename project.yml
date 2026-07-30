@@ -12,6 +12,20 @@ settings:
     TARGETED_DEVICE_FAMILY: "1"
     ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
 
+# Only used if you regenerate the .xcodeproj via `xcodegen generate` (see
+# README). The checked-in .xcodeproj was hand-patched to add these same two
+# packages as target dependencies directly in Xcode instead -- see the setup
+# guide -- since hand-editing SPM package references into a raw .pbxproj is
+# far riskier to get right than either regenerating from this file or using
+# Xcode's own "Add Package Dependency" UI.
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: 2.0.0
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: 7.0.0
+
 targets:
   Doppel:
     type: application
@@ -24,6 +38,11 @@ targets:
           - "Info.plist"
       - path: Doppel/Preview Content
         buildPhase: none
+    dependencies:
+      - package: Supabase
+        product: Supabase
+      - package: GoogleSignIn
+        product: GoogleSignIn
     info:
       path: Doppel/Info.plist
     settings:
@@ -37,6 +56,11 @@ targets:
         DEVELOPMENT_ASSET_PATHS: "\"Doppel/Preview Content\""
         ENABLE_PREVIEWS: YES
         CODE_SIGN_STYLE: Automatic
+    entitlements:
+      path: Doppel/Doppel.entitlements
+      properties:
+        com.apple.developer.applesignin:
+          - Default
     schemes:
       Doppel:
         build:

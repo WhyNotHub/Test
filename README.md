@@ -1,8 +1,16 @@
-# Doppel
+# Bamboo
 
 Your digital self, front and center.
 
-Doppel is an iOS app built around one idea: the home screen *is* your
+> Product name is **Bamboo** (formerly "Doppel" during early development).
+> The Xcode project, scheme, source folder, bundle identifier and internal
+> `Doppel*` type names (`DoppelColor`, `DoppelFont`, `DoppelAvatar`, etc.)
+> still use the old name — renaming those is a much bigger, riskier change
+> (touches the `.xcodeproj` file directly) and was deliberately left alone
+> for now since it's invisible to anyone using the app. Everything a user
+> actually sees says Bamboo.
+
+Bamboo is an iOS app built around one idea: the home screen *is* your
 digital twin — a fully custom, code-drawn character that represents you,
 rendered live (not a static image), that you can reshape to look like you
 and that quietly breathes and blinks while you look at it. Everything else
@@ -49,17 +57,51 @@ clean project file from scratch.
 
 ```
 Doppel/
-├── App/                 App entry point
+├── App/                 App entry point + auth-state routing
 ├── DesignSystem/        Color, type, spacing tokens + shared view modifiers
-├── Avatar/               DoppelAvatar model, AvatarStore (persistence),
+├── Auth/                 SupabaseConfig, AuthService (Apple/Google sign-in), LoginView
+├── Avatar/               DoppelAvatar model, AvatarStore (local + Supabase sync),
 │                          the Shape-based renderer, and the customize sheet
 ├── Home/                 The main menu / home screen
 ├── Components/           Reusable buttons, backgrounds, trait pickers
-└── Resources/             Assets.xcassets (app icon, accent color)
+└── Resources/             Assets.xcassets (app icon, accent color, Google logo)
 ```
 
-The avatar and the user's display name persist locally via `UserDefaults`
-(JSON-encoded) — no backend, no account, nothing to configure.
+The avatar and display name are cached locally via `UserDefaults` (JSON-encoded,
+for instant load and offline use) and synced to Supabase once signed in, so
+they follow you to a new device. See **Backend setup** below — this needs a
+few things only you can do before sign-in actually works.
+
+## Backend setup
+
+Accounts (Sign in with Apple / Google) and cloud save run on
+[Supabase](https://supabase.com). None of this can be done for you — it
+needs your own accounts on Supabase's, Apple's, and Google's consoles. This
+is the short version; ask if you want the fully detailed walkthrough again.
+
+1. **Supabase project.** Create one at supabase.com. In the SQL Editor, run
+   [`supabase/schema.sql`](supabase/schema.sql) once — it creates the
+   `profiles` table, its Row Level Security policies, and the
+   account-deletion function. From Settings → API, copy the Project URL and
+   anon/publishable key into `Doppel/Auth/SupabaseConfig.swift` (it starts
+   with placeholder values that are obviously not real).
+2. **Sign in with Apple.** Requires an Apple Developer Program membership.
+   In Xcode: target → Signing & Capabilities → **+ Capability** → "Sign in
+   with Apple" (this generates the entitlement correctly on its own — don't
+   hand-edit one). In Supabase: Authentication → Providers → enable Apple.
+3. **Google Sign-In.** In Google Cloud Console, create an iOS OAuth client
+   ID with this app's bundle ID, plus a Web OAuth client ID (Supabase's
+   Google provider wants both). Put the iOS client ID into
+   `Doppel/Info.plist`'s `GIDClientID` key and into the reversed-ID URL
+   scheme right below it (both are placeholders right now). In Supabase:
+   Authentication → Providers → Google → enable it, add both client IDs
+   (comma-separated), and turn on **Skip nonce check** — the native iOS
+   sign-in flow needs that specific toggle or it fails silently.
+4. **Two Swift packages.** In Xcode: File → Add Package Dependencies →
+   add `https://github.com/supabase/supabase-swift` (product: `Supabase`)
+   and `https://github.com/google/GoogleSignIn-iOS` (product:
+   `GoogleSignIn`), both on the Doppel target. `project.yml` already
+   declares these for anyone who regenerates via XcodeGen instead.
 
 ## Notes / known follow-ups
 
@@ -74,7 +116,15 @@ The avatar and the user's display name persist locally via `UserDefaults`
   on near-black) matching the app's palette — swap in a final icon
   whenever you're ready.
 - `PRODUCT_BUNDLE_IDENTIFIER` is set to `com.doppel.app` — change it to
-  your own reverse-DNS identifier before shipping.
+  your own reverse-DNS identifier before shipping. If you change it
+  *after* setting up Sign in with Apple / Google above, you'll need to
+  update it in the Apple Developer portal and the Google OAuth client too
+  — they're matched to this exact string.
+- Account deletion (Settings → Delete Account) removes the Supabase user
+  and their profile row, but doesn't yet revoke the underlying Apple/Google
+  grant on their end — for a real App Store submission, Apple's guidelines
+  expect you to also call Apple's token-revocation endpoint when someone
+  who signed in with Apple deletes their account. Not wired up yet.
 
 ## What's next
 

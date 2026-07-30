@@ -65,7 +65,7 @@ struct HomeView: View {
                 .presentationDragIndicator(.visible)
                 .presentationCornerRadius(DoppelRadius.lg)
             }
-            .alert("Rename your Doppel", isPresented: $showRename) {
+            .alert("Rename your Bamboo", isPresented: $showRename) {
                 TextField("Your name", text: $draftName)
                 Button("Save") {
                     let trimmed = draftName.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -93,7 +93,7 @@ struct HomeView: View {
 
             Spacer()
 
-            IconButton(systemName: "gearshape.fill") {
+            IconButton(systemName: "gearshape.fill", style: .accent, size: 48) {
                 showSettings = true
             }
         }
@@ -158,16 +158,27 @@ struct HomeView: View {
 
 struct SettingsSheet: View {
     @Environment(AvatarStore.self) private var store
+    @Environment(AuthService.self) private var auth
     @Environment(\.dismiss) private var dismiss
     var onRename: () -> Void
+
+    @State private var showDeleteConfirm = false
 
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    Button("Rename Doppel", action: onRename)
+                    Button("Rename Bamboo", action: onRename)
                     Button("Reset Avatar", role: .destructive) {
                         store.resetAvatar()
+                    }
+                }
+                Section("Account") {
+                    Button("Sign Out") {
+                        auth.signOut()
+                    }
+                    Button("Delete Account", role: .destructive) {
+                        showDeleteConfirm = true
                     }
                 }
                 Section("About") {
@@ -186,8 +197,16 @@ struct SettingsSheet: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
+                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
                 }
+            }
+            .alert("Delete your account?", isPresented: $showDeleteConfirm) {
+                Button("Delete", role: .destructive) {
+                    Task { await auth.deleteAccount() }
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This permanently deletes your Bamboo and everything saved to it. This can't be undone.")
             }
         }
         .preferredColorScheme(.dark)

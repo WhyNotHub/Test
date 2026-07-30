@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Doppel</string>
+	<string>Bamboo</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -43,6 +43,26 @@
 		<string>Outfit-Bold.ttf</string>
 		<string>Unbounded-Bold.ttf</string>
 		<string>Unbounded-ExtraBold.ttf</string>
+	</array>
+	<!--
+	  Google Sign-In setup (see the setup guide): replace both placeholders
+	  below with your iOS OAuth client ID from Google Cloud Console.
+	  GIDClientID takes the client ID as is, e.g.
+	  1234567890-abcdefg.apps.googleusercontent.com. The URL scheme is that
+	  same ID reversed into com.googleusercontent.apps.(id prefix) form.
+	  Google's sign-in flow fails silently without both of these set
+	  correctly; it will not throw a build error.
+	-->
+	<key>GIDClientID</key>
+	<string>REPLACE_WITH_YOUR_GOOGLE_IOS_CLIENT_ID.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.REPLACE_WITH_YOUR_CLIENT_ID_PREFIX</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
