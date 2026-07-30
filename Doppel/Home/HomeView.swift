@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var showRename = false
     @State private var draftName = ""
     @State private var showComingSoon = false
+    @State private var visibleDate = Calendar.current.startOfDay(for: Date())
 
     var body: some View {
         NavigationStack {
@@ -22,7 +23,7 @@ struct HomeView: View {
                 VStack(spacing: 0) {
                     topBar
 
-                    DayStrip()
+                    DayStrip(visibleDate: $visibleDate)
                         .padding(.top, DoppelSpacing.lg)
 
                     Spacer(minLength: DoppelSpacing.lg)
@@ -79,10 +80,17 @@ struct HomeView: View {
     }
 
     private var topBar: some View {
-        HStack {
-            Text(greeting)
-                .font(DoppelFont.headline(20))
-                .foregroundStyle(DoppelColor.textPrimary)
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(greeting)
+                    .font(DoppelFont.headline(20))
+                    .foregroundStyle(DoppelColor.textPrimary)
+
+                Text(monthYearTitle)
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .foregroundStyle(DoppelColor.textSecondary)
+                    .tracking(1.2)
+            }
 
             Spacer()
 
@@ -91,6 +99,10 @@ struct HomeView: View {
             }
         }
         .padding(.top, DoppelSpacing.sm)
+    }
+
+    private var monthYearTitle: String {
+        visibleDate.formatted(.dateTime.month(.wide).year()).uppercased()
     }
 
     private var avatarHero: some View {
