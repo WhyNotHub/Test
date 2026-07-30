@@ -52,7 +52,9 @@ enum DoppelGradient {
         endPoint: .bottomTrailing
     )
 
-    static func aura(_ colors: [Color]) -> AngularGradient {
-        AngularGradient(colors: colors + [colors[0]], center: .center)
+    /// A plain two-tone diagonal rather than a conic sweep -- calmer, and
+    /// matches the linear shading used everywhere else on the avatar.
+    static func aura(_ colors: [Color]) -> LinearGradient {
+        LinearGradient(colors: colors, startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
