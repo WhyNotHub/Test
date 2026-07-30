@@ -143,15 +143,9 @@ struct HomeView: View {
             draftName = store.userName
             showRename = true
         } label: {
-            HStack(spacing: DoppelSpacing.xs) {
-                Text(store.userName)
-                    .font(DoppelFont.title(34))
-                    .foregroundStyle(DoppelColor.textPrimary)
-                Glyph.Pencil()
-                    .fill()
-                    .frame(width: 15, height: 15)
-                    .foregroundStyle(DoppelColor.textTertiary)
-            }
+            Text(store.userName)
+                .font(DoppelFont.title(34))
+                .foregroundStyle(DoppelColor.textPrimary)
         }
         .buttonStyle(PressableStyle())
     }

@@ -191,13 +191,10 @@ private struct DayCell: View {
 
             HStack(spacing: 3) {
                 ForEach(orderedActivities, id: \.self) { activity in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4, style: .continuous)
-                            .fill(activity.color)
+                    Group {
                         if let icon = categoryInfo[activity]?.icon {
                             icon.glyph
-                                .frame(width: 7, height: 7)
-                                .foregroundStyle(DoppelColor.void)
+                                .foregroundStyle(activity.color)
                         }
                     }
                     .frame(width: 13, height: 13)
@@ -299,14 +296,10 @@ private struct ActivityToggleRow: View {
     var body: some View {
         HStack(spacing: DoppelSpacing.sm) {
             Button(action: onCycleIcon) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 13, style: .continuous)
-                        .fill(activity.color)
-                    info.icon.glyph
-                        .frame(width: 19, height: 19)
-                        .foregroundStyle(DoppelColor.void)
-                }
-                .frame(width: 40, height: 40)
+                info.icon.glyph
+                    .frame(width: 28, height: 28)
+                    .foregroundStyle(activity.color)
+                    .frame(width: 40, height: 40)
             }
             .buttonStyle(PressableStyle())
             .allowsHitTesting(editMode)
