@@ -119,8 +119,11 @@ struct HomeView: View {
         } label: {
             ZStack {
                 AuraRing(colors: store.avatar.auraPalette.colors)
+                // Clipped to a circle -- like a profile photo -- so the
+                // torso never pokes its corners out past the ring.
                 AvatarView(avatar: store.avatar)
                     .frame(width: 230, height: 230)
+                    .clipShape(Circle())
             }
         }
         .buttonStyle(PressableStyle())

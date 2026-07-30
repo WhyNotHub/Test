@@ -50,14 +50,6 @@ struct HairView: View {
 
     @ViewBuilder
     private var frontContent: some View {
-        ZStack {
-            frontShapes
-            hairSheen
-        }
-    }
-
-    @ViewBuilder
-    private var frontShapes: some View {
         switch style {
         case .shaved:
             EmptyView()
@@ -117,41 +109,6 @@ struct HairView: View {
                 .fill(hairFill)
                 .frame(width: headSize.width * 0.16, height: headSize.height * 0.62)
                 .position(x: headCenter.x, y: headCenter.y - headSize.height * 0.42)
-        }
-    }
-
-    /// A thin, low-opacity highlight over the hair mass to suggest a
-    /// glossy surface catching light. Sized per-style rather than one
-    /// generic band -- a wide sheen over a narrow mohawk would spill onto
-    /// the face.
-    @ViewBuilder
-    private var hairSheen: some View {
-        let shine = Color.white.opacity(0.16)
-        switch style {
-        case .shaved:
-            EmptyView()
-        case .mohawk:
-            Capsule()
-                .fill(shine)
-                .frame(width: headSize.width * 0.06, height: headSize.height * 0.34)
-                .position(x: headCenter.x - headSize.width * 0.02, y: headCenter.y - headSize.height * 0.58)
-        case .curls:
-            ZStack {
-                Circle()
-                    .fill(shine)
-                    .frame(width: headSize.width * 0.09, height: headSize.width * 0.09)
-                    .position(x: headCenter.x - headSize.width * 0.08, y: headCenter.y - headSize.height * 0.36)
-                Circle()
-                    .fill(shine)
-                    .frame(width: headSize.width * 0.07, height: headSize.width * 0.07)
-                    .position(x: headCenter.x + headSize.width * 0.05, y: headCenter.y - headSize.height * 0.37)
-            }
-        default:
-            Capsule()
-                .fill(shine)
-                .frame(width: headSize.width * 0.5, height: headSize.height * 0.09)
-                .rotationEffect(.degrees(-18))
-                .position(x: headCenter.x - headSize.width * 0.08, y: headCenter.y - headSize.height * 0.62)
         }
     }
 

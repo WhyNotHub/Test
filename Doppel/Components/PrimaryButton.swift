@@ -19,7 +19,7 @@ struct PrimaryButton: View {
             .padding(.vertical, DoppelSpacing.md)
             .frame(maxWidth: .infinity)
             .background(DoppelGradient.signature, in: Capsule())
-            .glow(DoppelColor.violet, radius: 20, opacity: 0.45)
+            .glow(DoppelColor.violet, radius: 10, opacity: 0.22)
         }
         .buttonStyle(PressableStyle())
     }

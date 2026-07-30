@@ -43,56 +43,20 @@ struct GlowBackground: View {
 }
 
 /// The halo directly behind the hero avatar -- the "digital" signature of
-/// the character. Three lowkey layers instead of one loud blurred glow: a
-/// soft glass lens behind the avatar (depth, not glow), a thin bezel stroke
-/// (the actual "ring"), and a much dimmer, tighter glow that reads as a
-/// quiet emission rather than a spotlight, plus a faint counter-rotating
-/// inner bezel for a little parallax.
+/// the character. Used to be four animated, blurred layers (glow halo +
+/// counter-rotating inner bezel + glass lens + stroke) -- busy, expensive
+/// to animate, and read as neon/sci-fi rather than clean. Now it's one
+/// static thin ring with a soft shadow for a touch of ambient light: no
+/// blur layer, no rotation, nothing continuously repainting.
 struct AuraRing: View {
     var colors: [Color]
     var size: CGFloat = 280
 
-    @State private var rotate = false
-    @State private var counterRotate = false
-
     var body: some View {
-        ZStack {
-            Circle()
-                .strokeBorder(DoppelGradient.aura(colors), lineWidth: 14)
-                .frame(width: size, height: size)
-                .blur(radius: 20)
-                .opacity(0.22)
-                .rotationEffect(.degrees(rotate ? 360 : 0))
-
-            Circle()
-                .strokeBorder(DoppelGradient.aura(colors), lineWidth: 1)
-                .frame(width: size * 1.10, height: size * 1.10)
-                .opacity(0.14)
-                .rotationEffect(.degrees(counterRotate ? -360 : 0))
-
-            Circle()
-                .fill(
-                    RadialGradient(
-                        colors: [(colors.first ?? DoppelColor.violet).opacity(0.22), .clear],
-                        center: UnitPoint(x: 0.36, y: 0.30), startRadius: 0, endRadius: size * 0.42
-                    )
-                )
-                .frame(width: size * 0.92, height: size * 0.92)
-
-            Circle()
-                .strokeBorder(DoppelGradient.aura(colors), lineWidth: 2.5)
-                .frame(width: size, height: size)
-                .opacity(0.85)
-                .rotationEffect(.degrees(rotate ? 360 : 0))
-        }
-        .onAppear {
-            withAnimation(.linear(duration: 26).repeatForever(autoreverses: false)) {
-                rotate = true
-            }
-            withAnimation(.linear(duration: 34).repeatForever(autoreverses: false)) {
-                counterRotate = true
-            }
-        }
+        Circle()
+            .strokeBorder(DoppelGradient.aura(colors), lineWidth: 2)
+            .frame(width: size, height: size)
+            .shadow(color: (colors.first ?? DoppelColor.violet).opacity(0.35), radius: 10)
     }
 }
 
