@@ -15,7 +15,9 @@ struct PrimaryButton: View {
         Button(action: action) {
             HStack(spacing: DoppelSpacing.sm) {
                 Text(title)
-                    .font(DoppelFont.bodyBold(15))
+                    .font(DoppelFont.bodyBold(14))
+                    .textCase(.uppercase)
+                    .tracking(1.2)
                 if let systemImage {
                     Image(systemName: systemImage)
                         .font(.system(size: 15, weight: .semibold))
@@ -31,7 +33,7 @@ struct PrimaryButton: View {
 }
 
 #Preview {
-    PrimaryButton(title: "Bamboo") {}
+    PrimaryButton(title: "Bamboo", systemImage: nil) {}
         .padding()
         .background(DoppelColor.void)
 }

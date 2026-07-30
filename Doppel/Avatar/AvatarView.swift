@@ -27,12 +27,15 @@ enum AvatarMetrics {
 /// Renders a `DoppelAvatar` as a fully vector, code-drawn character — no
 /// image assets involved. Usable at any size, from a small list glyph to a
 /// full hero portrait on the home screen.
+///
+/// No continuous scale/"breathing" animation here -- a portrait that keeps
+/// resizing itself reads as cheap, not alive. Blinking (a small, localized
+/// eye animation, not a resize) is the only idle motion left.
 struct AvatarView: View {
     var avatar: DoppelAvatar
     var animated: Bool = true
 
     @State private var blinking = false
-    @State private var breathing = false
     @State private var blinkTask: Task<Void, Never>?
 
     var body: some View {
@@ -56,25 +59,12 @@ struct AvatarView: View {
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .aspectRatio(1, contentMode: .fit)
-        .scaleEffect(breathing ? 1.03 : 1.0)
         .onAppear { if animated { startAnimations() } }
         .onDisappear { stopAnimations() }
         .accessibilityLabel("Your Doppel avatar")
     }
 
     private func startAnimations() {
-        // .easeInOut is Core Animation's generic cubic-bezier(0.42,0,0.58,1)
-        // -- fine for a quick one-off transition, but for a slow, always-
-        // visible, endlessly-repeating loop like breathing, the difference
-        // from true sine easing reads as slightly mechanical. This is
-        // (0.37,0,0.63,1) -- the standard "easeInOutSine" curve -- applied
-        // forward and back each half of the cycle, which is what actually
-        // produces sine-like motion (repeatForever(autoreverses:) doesn't
-        // change the curve shape, just runs it twice per cycle).
-        withAnimation(.timingCurve(0.37, 0, 0.63, 1, duration: 3.4).repeatForever(autoreverses: true)) {
-            breathing = true
-        }
-
         blinkTask = Task {
             while !Task.isCancelled {
                 let delay = Double.random(in: 2.4...5.2)
@@ -93,7 +83,6 @@ struct AvatarView: View {
     private func stopAnimations() {
         blinkTask?.cancel()
         blinkTask = nil
-        breathing = false
     }
 }
 
