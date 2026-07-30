@@ -21,6 +21,7 @@ struct DayStrip: View {
     @State private var currentDate: Date
     @State private var settleTask: Task<Void, Never>?
     @State private var dayActivities: [Date: Set<DayActivity>]
+    @State private var categoryInfo: [DayActivity: ActivityCategoryInfo] = DayActivity.defaultCategoryInfo
     @State private var showDayEditor = false
     @State private var editingDay = Date()
 
@@ -52,7 +53,8 @@ struct DayStrip: View {
                     DayCell(
                         date: day,
                         isSelected: calendar.isDate(day, inSameDayAs: currentDate),
-                        activities: dayActivities[day] ?? []
+                        activities: dayActivities[day] ?? [],
+                        categoryInfo: categoryInfo
                     )
                     .id(day)
                     .onTapGesture {
@@ -81,10 +83,14 @@ struct DayStrip: View {
             }
         }
         .sheet(isPresented: $showDayEditor) {
-            DayActivityEditor(day: editingDay, activeActivities: activitiesBinding(for: editingDay))
-                .presentationDetents([.fraction(0.4)])
-                .presentationDragIndicator(.visible)
-                .presentationCornerRadius(DoppelRadius.lg)
+            DayActivityEditor(
+                day: editingDay,
+                activeActivities: activitiesBinding(for: editingDay),
+                categoryInfo: $categoryInfo
+            )
+            .presentationDetents([.fraction(0.4)])
+            .presentationDragIndicator(.visible)
+            .presentationCornerRadius(DoppelRadius.lg)
         }
     }
 
@@ -130,17 +136,12 @@ struct DayStrip: View {
 /// A category for the badges under each day. `demo(for:)` seeds initial
 /// state so the strip isn't empty on first launch; from there it's real,
 /// user-edited per-day state (in-memory only, not persisted yet) toggled
-/// from `DayActivityEditor`.
+/// from `DayActivityEditor`. Each case's color is fixed identity (Gym is
+/// always the lime slot); its display name and icon live separately in
+/// `ActivityCategoryInfo` since those are the parts someone might rename
+/// or re-icon (e.g. "Gym" -> "Yoga").
 enum DayActivity: CaseIterable, Hashable {
     case gym, work, school
-
-    var label: String {
-        switch self {
-        case .gym: "Gym"
-        case .work: "Work"
-        case .school: "School"
-        }
-    }
 
     var color: Color {
         switch self {
@@ -157,12 +158,52 @@ enum DayActivity: CaseIterable, Hashable {
         if index % 9 == 4 { activities.append(.school) }
         return activities
     }
+
+    static let defaultCategoryInfo: [DayActivity: ActivityCategoryInfo] = [
+        .gym: ActivityCategoryInfo(label: "Gym", icon: .dumbbell),
+        .work: ActivityCategoryInfo(label: "Work", icon: .briefcase),
+        .school: ActivityCategoryInfo(label: "School", icon: .graduation)
+    ]
+}
+
+/// The editable part of a category: what it's called and which glyph
+/// represents it.
+struct ActivityCategoryInfo: Hashable {
+    var label: String
+    var icon: ActivityIcon
+}
+
+/// Five modern, minimal, single-purpose glyphs -- covers the common
+/// categories out of the box (gym/work/school) with headroom to reassign
+/// as someone's actual routine varies. Uses SF Symbols directly rather
+/// than hand-drawn shapes: these are standard, well-established symbols,
+/// so there's no custom Bezier geometry to get subtly wrong with no
+/// compiler around to catch it.
+enum ActivityIcon: CaseIterable {
+    case dumbbell, briefcase, graduation, moon, heart
+
+    var systemName: String {
+        switch self {
+        case .dumbbell: "dumbbell.fill"
+        case .briefcase: "briefcase.fill"
+        case .graduation: "graduationcap.fill"
+        case .moon: "moon.fill"
+        case .heart: "heart.fill"
+        }
+    }
+
+    var next: ActivityIcon {
+        let all = Self.allCases
+        let index = all.firstIndex(of: self) ?? 0
+        return all[(index + 1) % all.count]
+    }
 }
 
 private struct DayCell: View {
     let date: Date
     let isSelected: Bool
     let activities: Set<DayActivity>
+    let categoryInfo: [DayActivity: ActivityCategoryInfo]
 
     private var weekday: String { date.formatted(.dateTime.weekday(.abbreviated)) }
     private var dayNumber: String { date.formatted(.dateTime.day()) }
@@ -181,13 +222,20 @@ private struct DayCell: View {
 
             HStack(spacing: 3) {
                 ForEach(orderedActivities, id: \.self) { activity in
-                    Circle()
-                        .fill(activity.color)
-                        .frame(width: 5, height: 5)
-                        .transition(.scale.combined(with: .opacity))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 4, style: .continuous)
+                            .fill(activity.color)
+                        if let icon = categoryInfo[activity]?.icon {
+                            Image(systemName: icon.systemName)
+                                .font(.system(size: 7, weight: .bold))
+                                .foregroundStyle(DoppelColor.void)
+                        }
+                    }
+                    .frame(width: 13, height: 13)
+                    .transition(.scale.combined(with: .opacity))
                 }
             }
-            .frame(height: 6)
+            .frame(height: 13)
             .animation(.spring(response: 0.3, dampingFraction: 0.7), value: activities)
         }
         .frame(width: 52, height: 84)
@@ -198,10 +246,18 @@ private struct DayCell: View {
 /// gym/work/school on or off for that specific day. Each toggle writes
 /// straight into `DayStrip`'s activity state via the binding, so the badge
 /// row under the day updates live, immediately behind this sheet.
+///
+/// Edit mode repurposes the same rows instead of adding a separate picker
+/// screen: the icon becomes a tap target that cycles to the next glyph and
+/// the label becomes directly typeable. Category color stays fixed to its
+/// slot regardless -- only name and icon are editable.
 private struct DayActivityEditor: View {
     @Environment(\.dismiss) private var dismiss
     let day: Date
     @Binding var activeActivities: Set<DayActivity>
+    @Binding var categoryInfo: [DayActivity: ActivityCategoryInfo]
+
+    @State private var editMode = false
 
     private var title: String {
         Calendar.current.isDateInToday(day)
@@ -215,10 +271,13 @@ private struct DayActivityEditor: View {
                 ForEach(DayActivity.allCases, id: \.self) { activity in
                     ActivityToggleRow(
                         activity: activity,
-                        isOn: activeActivities.contains(activity)
-                    ) {
-                        toggle(activity)
-                    }
+                        info: categoryInfo[activity] ?? ActivityCategoryInfo(label: "", icon: .dumbbell),
+                        isOn: activeActivities.contains(activity),
+                        editMode: editMode,
+                        onToggle: { toggle(activity) },
+                        onCycleIcon: { cycleIcon(activity) },
+                        onRename: { categoryInfo[activity]?.label = $0 }
+                    )
                 }
                 Spacer(minLength: 0)
             }
@@ -229,9 +288,12 @@ private struct DayActivityEditor: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
-                        .fontWeight(.semibold)
-                        .foregroundStyle(DoppelColor.violet)
+                    IconButton(systemName: "pencil", style: editMode ? .solid : .glass) {
+                        editMode.toggle()
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
                 }
             }
         }
@@ -246,21 +308,45 @@ private struct DayActivityEditor: View {
         }
         UISelectionFeedbackGenerator().selectionChanged()
     }
+
+    private func cycleIcon(_ activity: DayActivity) {
+        categoryInfo[activity]?.icon = categoryInfo[activity]?.icon.next ?? .dumbbell
+        UISelectionFeedbackGenerator().selectionChanged()
+    }
 }
 
 private struct ActivityToggleRow: View {
     let activity: DayActivity
+    let info: ActivityCategoryInfo
     let isOn: Bool
-    let action: () -> Void
+    let editMode: Bool
+    let onToggle: () -> Void
+    let onCycleIcon: () -> Void
+    let onRename: (String) -> Void
 
     var body: some View {
-        Button(action: action) {
-            HStack(spacing: DoppelSpacing.sm) {
-                Circle()
-                    .fill(activity.color)
-                    .frame(width: 11, height: 11)
+        HStack(spacing: DoppelSpacing.sm) {
+            Button(action: onCycleIcon) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 13, style: .continuous)
+                        .fill(activity.color)
+                    Image(systemName: info.icon.systemName)
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(DoppelColor.void)
+                }
+                .frame(width: 40, height: 40)
+            }
+            .buttonStyle(PressableStyle())
+            .allowsHitTesting(editMode)
 
-                Text(activity.label)
+            if editMode {
+                TextField("", text: Binding(get: { info.label }, set: onRename))
+                    .textFieldStyle(.plain)
+                    .font(DoppelFont.bodyBold(14.5))
+                    .foregroundStyle(DoppelColor.textPrimary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                Text(info.label)
                     .font(DoppelFont.bodyBold(14.5))
                     .foregroundStyle(DoppelColor.textPrimary)
 
@@ -280,18 +366,22 @@ private struct ActivityToggleRow: View {
                 }
                 .frame(width: 24, height: 24)
             }
-            .padding(.horizontal, DoppelSpacing.md)
-            .padding(.vertical, 14)
-            .background(
-                RoundedRectangle(cornerRadius: DoppelRadius.sm, style: .continuous)
-                    .fill(DoppelColor.surfaceElevated)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: DoppelRadius.sm, style: .continuous)
-                            .stroke(isOn ? activity.color : DoppelColor.hairline, lineWidth: 1.5)
-                    )
-            )
         }
-        .buttonStyle(PressableStyle())
+        .padding(.horizontal, DoppelSpacing.md)
+        .padding(.vertical, 14)
+        .background(
+            RoundedRectangle(cornerRadius: DoppelRadius.sm, style: .continuous)
+                .fill(DoppelColor.surfaceElevated)
+                .overlay(
+                    RoundedRectangle(cornerRadius: DoppelRadius.sm, style: .continuous)
+                        .stroke(isOn ? activity.color : DoppelColor.hairline, lineWidth: 1.5)
+                )
+        )
+        .contentShape(Rectangle())
+        .onTapGesture {
+            guard !editMode else { return }
+            onToggle()
+        }
         .animation(.easeOut(duration: 0.2), value: isOn)
     }
 }
