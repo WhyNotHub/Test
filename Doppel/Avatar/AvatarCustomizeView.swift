@@ -112,10 +112,15 @@ struct AvatarCustomizeView: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
+                    IconButton(style: .solid, action: { dismiss() }) {
+                        Glyph.Checkmark()
+                            .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                    }
                 }
                 ToolbarItem(placement: .topBarLeading) {
-                    IconButton(systemName: "arrow.counterclockwise") { store.resetAvatar() }
+                    IconButton(action: { store.resetAvatar() }) {
+                        ResetGlyph()
+                    }
                 }
             }
         }

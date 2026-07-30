@@ -22,6 +22,7 @@
 		F641FE18314242B8B4E1ED76 /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9400D4D7754033820157EB /* GlowBackground.swift */; };
 		A6CDC58AF0C146AC86B6BBAA /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */; };
 		B34980F362D44F5AA63509AF /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A4EA720A040F290B10C38 /* IconButton.swift */; };
+		7AF4AABF05F040F088F9A96A /* Glyphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9D342777384C41A88BBE26 /* Glyphs.swift */; };
 		695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */; };
 		75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693926F677243C7B00ADB6A /* DayStrip.swift */; };
 		6896F3C0C19249EFAF42C767 /* SupabaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834829E223A546AE83C04086 /* SupabaseConfig.swift */; };
@@ -52,6 +53,7 @@
 		4E9400D4D7754033820157EB /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
 		E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		025A4EA720A040F290B10C38 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		BE9D342777384C41A88BBE26 /* Glyphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glyphs.swift; sourceTree = "<group>"; };
 		0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
 		8693926F677243C7B00ADB6A /* DayStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStrip.swift; sourceTree = "<group>"; };
 		834829E223A546AE83C04086 /* SupabaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseConfig.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				4E9400D4D7754033820157EB /* GlowBackground.swift */,
 				E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */,
 				025A4EA720A040F290B10C38 /* IconButton.swift */,
+				BE9D342777384C41A88BBE26 /* Glyphs.swift */,
 				0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */,
 				8693926F677243C7B00ADB6A /* DayStrip.swift */,
 			);
@@ -294,6 +297,7 @@
 				F641FE18314242B8B4E1ED76 /* GlowBackground.swift in Sources */,
 				A6CDC58AF0C146AC86B6BBAA /* PrimaryButton.swift in Sources */,
 				B34980F362D44F5AA63509AF /* IconButton.swift in Sources */,
+				7AF4AABF05F040F088F9A96A /* Glyphs.swift in Sources */,
 				695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */,
 				75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */,
 				6896F3C0C19249EFAF42C767 /* SupabaseConfig.swift in Sources */,

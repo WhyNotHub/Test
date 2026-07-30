@@ -143,9 +143,15 @@ struct HomeView: View {
             draftName = store.userName
             showRename = true
         } label: {
-            Text(store.userName)
-                .font(DoppelFont.title(34))
-                .foregroundStyle(DoppelColor.textPrimary)
+            HStack(spacing: DoppelSpacing.xs) {
+                Text(store.userName)
+                    .font(DoppelFont.title(34))
+                    .foregroundStyle(DoppelColor.textPrimary)
+                Glyph.Pencil()
+                    .fill()
+                    .frame(width: 15, height: 15)
+                    .foregroundStyle(DoppelColor.textTertiary)
+            }
         }
         .buttonStyle(PressableStyle())
     }
@@ -201,7 +207,10 @@ struct SettingsSheet: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
+                    IconButton(style: .solid, action: { dismiss() }) {
+                        Glyph.Checkmark()
+                            .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                    }
                 }
             }
             .alert("Delete your account?", isPresented: $showDeleteConfirm) {

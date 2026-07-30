@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct IconButton: View {
+struct IconButton<Icon: View>: View {
     enum Style {
         /// Subtle frosted-glass circle. Default -- for secondary/transient
         /// actions inside a sheet (e.g. Reset).
@@ -11,15 +11,15 @@ struct IconButton: View {
         case solid
     }
 
-    var systemName: String
     var style: Style = .glass
     var size: CGFloat = 40
     var action: () -> Void
+    @ViewBuilder var icon: () -> Icon
 
     var body: some View {
         Button(action: action) {
-            Image(systemName: systemName)
-                .font(.system(size: size * 0.375, weight: .semibold))
+            icon()
+                .frame(width: size * 0.375, height: size * 0.375)
                 .foregroundStyle(foregroundColor)
                 .frame(width: size, height: size)
                 .background(background)
@@ -60,8 +60,13 @@ struct IconButton: View {
 
 #Preview {
     HStack(spacing: 16) {
-        IconButton(systemName: "arrow.counterclockwise") {}
-        IconButton(systemName: "checkmark", style: .solid) {}
+        IconButton(action: {}) {
+            ResetGlyph()
+        }
+        IconButton(style: .solid, action: {}) {
+            Glyph.Checkmark()
+                .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+        }
     }
     .padding()
     .background(DoppelColor.void)

@@ -141,20 +141,23 @@ struct ActivityCategoryInfo: Hashable {
 
 /// Five modern, minimal, single-purpose glyphs -- covers the common
 /// categories out of the box (gym/work/school) with headroom to reassign
-/// as someone's actual routine varies. Uses SF Symbols directly rather
-/// than hand-drawn shapes: these are standard, well-established symbols,
-/// so there's no custom Bezier geometry to get subtly wrong with no
-/// compiler around to catch it.
+/// as someone's actual routine varies. See `glyph` below for which of
+/// these are custom-drawn vs. SF Symbols.
 enum ActivityIcon: CaseIterable {
     case dumbbell, briefcase, graduation, moon, heart
 
-    var systemName: String {
+    /// Custom hand-drawn glyphs for the three most common categories;
+    /// moon/heart stay as SF Symbols -- a crescent and a heart are
+    /// already about as minimal as those shapes get, so redrawing them
+    /// wasn't worth the added geometry risk with no compiler to check it.
+    @ViewBuilder
+    var glyph: some View {
         switch self {
-        case .dumbbell: "dumbbell.fill"
-        case .briefcase: "briefcase.fill"
-        case .graduation: "graduationcap.fill"
-        case .moon: "moon.fill"
-        case .heart: "heart.fill"
+        case .dumbbell: Glyph.Dumbbell().fill()
+        case .briefcase: Glyph.Briefcase().fill()
+        case .graduation: GraduationGlyph()
+        case .moon: Image(systemName: "moon.fill").resizable().scaledToFit()
+        case .heart: Image(systemName: "heart.fill").resizable().scaledToFit()
         }
     }
 
@@ -192,8 +195,8 @@ private struct DayCell: View {
                         RoundedRectangle(cornerRadius: 4, style: .continuous)
                             .fill(activity.color)
                         if let icon = categoryInfo[activity]?.icon {
-                            Image(systemName: icon.systemName)
-                                .font(.system(size: 7, weight: .bold))
+                            icon.glyph
+                                .frame(width: 7, height: 7)
                                 .foregroundStyle(DoppelColor.void)
                         }
                     }
@@ -254,12 +257,15 @@ private struct DayActivityEditor: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    IconButton(systemName: "pencil", style: editMode ? .solid : .glass) {
-                        editMode.toggle()
+                    IconButton(style: editMode ? .solid : .glass, action: { editMode.toggle() }) {
+                        Glyph.Pencil().fill()
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
+                    IconButton(style: .solid, action: { dismiss() }) {
+                        Glyph.Checkmark()
+                            .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                    }
                 }
             }
         }
@@ -296,8 +302,8 @@ private struct ActivityToggleRow: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 13, style: .continuous)
                         .fill(activity.color)
-                    Image(systemName: info.icon.systemName)
-                        .font(.system(size: 18, weight: .semibold))
+                    info.icon.glyph
+                        .frame(width: 19, height: 19)
                         .foregroundStyle(DoppelColor.void)
                 }
                 .frame(width: 40, height: 40)
