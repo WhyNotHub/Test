@@ -171,11 +171,11 @@ private struct DayCell: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(weekday.uppercased())
-                .font(.system(size: 9.5, weight: .bold, design: .rounded))
+                .font(DoppelFont.bodyBold(9.5))
                 .foregroundStyle(isSelected ? DoppelColor.textSecondary : DoppelColor.textTertiary)
 
             Text(dayNumber)
-                .font(.system(size: isSelected ? 28 : 20, weight: isSelected ? .heavy : .bold, design: .rounded))
+                .font(isSelected ? DoppelFont.display(28) : DoppelFont.headline(20))
                 .foregroundStyle(isSelected ? DoppelColor.violet : DoppelColor.textTertiary)
                 .animation(.easeOut(duration: 0.3), value: isSelected)
 
@@ -261,8 +261,7 @@ private struct ActivityToggleRow: View {
                     .frame(width: 11, height: 11)
 
                 Text(activity.label)
-                    .font(DoppelFont.body(14.5))
-                    .fontWeight(.bold)
+                    .font(DoppelFont.bodyBold(14.5))
                     .foregroundStyle(DoppelColor.textPrimary)
 
                 Spacer()

@@ -7,51 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85074EA08A26444987F567F5 /* DoppelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C699230D3EA412687866D52 /* DoppelApp.swift */; };
-		B7B9A0B2388F4675A931F516 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254E54B341544A4297B9B4F1 /* Theme.swift */; };
-		C3598A2D0E4046A4B666939C /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C605643A243C9A05E10B7 /* Typography.swift */; };
-		2B94E29702AE496B9FDAFC54 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524C43967EFA47A38DB8B955 /* Spacing.swift */; };
-		FE6CFBE57050481C8D0FD320 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */; };
-		F4040CF17440445285925FE0 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A092C06464956B307B424 /* AvatarModel.swift */; };
-		51522E677B5A4F9EB46DE25D /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */; };
-		C937431D72CD408CBE754433 /* AvatarFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF408C8594BB98879191D /* AvatarFace.swift */; };
-		2C2A5C2AFC644D968EA51907 /* AvatarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24586DA2EA0455CABB7617D /* AvatarBody.swift */; };
-		1559DDF21C07494A8C34F5A3 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1672D3D74D42AD9061EF02 /* AvatarView.swift */; };
-		9083C2C269C44CEEBB590057 /* AvatarCustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */; };
-		52E7D14DBEFC4F00B7A1E440 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5637EEB59E643B8AA4619CA /* HomeView.swift */; };
-		10F36E032D3B46EBB5AFEF26 /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488002306634C6B937AC1C1 /* GlowBackground.swift */; };
-		A688C610D97C4E3097843B04 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */; };
-		B63A69E9DABD4C6780D28584 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D8D030985496986B468A5 /* IconButton.swift */; };
-		753E8CFDAF7842E2B2A439F8 /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE7C21AF12C464A854C2757 /* TraitPicker.swift */; };
-		503F0EB740A64569AE8DCB07 /* DayStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C378F4F9EB484A88E284B4 /* DayStrip.swift */; };
-		B9CFDF38191A420E9560EF86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443EFD59091A408C9282CA3E /* Assets.xcassets */; };
+		016CF04036FE4F23A56DEB48 /* DoppelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B73C95CC54F6D907589BD /* DoppelApp.swift */; };
+		845EA038E66A44BB90D5AD07 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80150926586545868478E9B8 /* Theme.swift */; };
+		4D709DF684D2449E9D8A50DF /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9913702F1D041609A3D472C /* Typography.swift */; };
+		EF1A428548DC40118FE49C83 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46C5A9B7884B84AA466989 /* Spacing.swift */; };
+		2845AA62E2854DC39AE1D9F4 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22771F702C1A4A0488724911 /* ViewModifiers.swift */; };
+		420B7EC38D80462690CA2AA2 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16FDA3944614920824D3788 /* AvatarModel.swift */; };
+		AF002366214E42A3A67EFEE2 /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BB1D6E5614286A3F841F3 /* AvatarStore.swift */; };
+		2FCD22D338F041808449289C /* AvatarFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBFF83BE2294B738D07C637 /* AvatarFace.swift */; };
+		FFA8B67F83FF47A98B98B94A /* AvatarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFEDCE86F7476EB0E0A62F /* AvatarBody.swift */; };
+		F5BA0D23AFB84FDD97ED06BE /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79786040AEF9493A8389B093 /* AvatarView.swift */; };
+		78C860B1A0F641878C067BFA /* AvatarCustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A44924EEB4E4DB456CA4E /* AvatarCustomizeView.swift */; };
+		7E367F1BAE4E48CB84A4811D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C159CC0EB0CF445C90731B89 /* HomeView.swift */; };
+		F641FE18314242B8B4E1ED76 /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9400D4D7754033820157EB /* GlowBackground.swift */; };
+		A6CDC58AF0C146AC86B6BBAA /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */; };
+		B34980F362D44F5AA63509AF /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A4EA720A040F290B10C38 /* IconButton.swift */; };
+		695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */; };
+		75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693926F677243C7B00ADB6A /* DayStrip.swift */; };
+		9F84C8B6FE804487B19DBEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3D4F4D6514E399E9CDCED /* Assets.xcassets */; };
+		569239B9475D4D5BBE3F1AF3 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DAA46DAF3E4438BA418AC3E /* Outfit-Regular.ttf */; };
+		3EAEE5CDFD8A46DC97600FB7 /* Outfit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD9756781148455CAAF37AA9 /* Outfit-Medium.ttf */; };
+		81AE3DA1D2874DA3A231CFBC /* Outfit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7131DB0E7D2F4B2BA362A665 /* Outfit-SemiBold.ttf */; };
+		3A15D35B59864599879DF0E4 /* Outfit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56EFC20C36A347A48B09EF28 /* Outfit-Bold.ttf */; };
+		19772683F85D4DDDBCE73464 /* Unbounded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0587A97869D942EDAB7060F8 /* Unbounded-Bold.ttf */; };
+		642756F5158C4855BA95966B /* Unbounded-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C90E4EB308CB4ABE9573FDA9 /* Unbounded-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C699230D3EA412687866D52 /* DoppelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoppelApp.swift; sourceTree = "<group>"; };
-		254E54B341544A4297B9B4F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		7D7C605643A243C9A05E10B7 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		524C43967EFA47A38DB8B955 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
-		DD3A092C06464956B307B424 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
-		BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
-		05DEF408C8594BB98879191D /* AvatarFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarFace.swift; sourceTree = "<group>"; };
-		F24586DA2EA0455CABB7617D /* AvatarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBody.swift; sourceTree = "<group>"; };
-		2E1672D3D74D42AD9061EF02 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomizeView.swift; sourceTree = "<group>"; };
-		F5637EEB59E643B8AA4619CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		C488002306634C6B937AC1C1 /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
-		F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		FD4D8D030985496986B468A5 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		EFE7C21AF12C464A854C2757 /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
-		C7C378F4F9EB484A88E284B4 /* DayStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStrip.swift; sourceTree = "<group>"; };
-		443EFD59091A408C9282CA3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CEF14BC1769B405884017227 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		11AE312A6AED405882E7BF7C /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		513B73C95CC54F6D907589BD /* DoppelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoppelApp.swift; sourceTree = "<group>"; };
+		80150926586545868478E9B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		E9913702F1D041609A3D472C /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		DE46C5A9B7884B84AA466989 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		22771F702C1A4A0488724911 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		B16FDA3944614920824D3788 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
+		051BB1D6E5614286A3F841F3 /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
+		2BBFF83BE2294B738D07C637 /* AvatarFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarFace.swift; sourceTree = "<group>"; };
+		75DFEDCE86F7476EB0E0A62F /* AvatarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBody.swift; sourceTree = "<group>"; };
+		79786040AEF9493A8389B093 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		B17A44924EEB4E4DB456CA4E /* AvatarCustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomizeView.swift; sourceTree = "<group>"; };
+		C159CC0EB0CF445C90731B89 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4E9400D4D7754033820157EB /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
+		E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		025A4EA720A040F290B10C38 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
+		8693926F677243C7B00ADB6A /* DayStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStrip.swift; sourceTree = "<group>"; };
+		8EE3D4F4D6514E399E9CDCED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		168539D8D17449BFB12F572A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E34F6B6CC5D54292A6A10E54 /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3A5CF1D1CCF44A2825F507D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DAA46DAF3E4438BA418AC3E /* Outfit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outfit-Regular.ttf; sourceTree = "<group>"; };
+		DD9756781148455CAAF37AA9 /* Outfit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outfit-Medium.ttf; sourceTree = "<group>"; };
+		7131DB0E7D2F4B2BA362A665 /* Outfit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outfit-SemiBold.ttf; sourceTree = "<group>"; };
+		56EFC20C36A347A48B09EF28 /* Outfit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outfit-Bold.ttf; sourceTree = "<group>"; };
+		0587A97869D942EDAB7060F8 /* Unbounded-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Unbounded-Bold.ttf; sourceTree = "<group>"; };
+		C90E4EB308CB4ABE9573FDA9 /* Unbounded-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Unbounded-ExtraBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0EFAD5D4564846B392177A92 /* Frameworks */ = {
+		B485554BB18D46A9A581F4E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -61,100 +74,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C9F62790119C4181882C5E7D = {
+		5CED6EBC963B4A248D185179 = {
 			isa = PBXGroup;
 			children = (
-				A79333DCEB584E80BAD9C33C /* Doppel */,
-				DC582881ED78413A92C11F2B /* Products */,
+				410880DE561A4254BCEAC611 /* Doppel */,
+				1A1112CD72A74B4D9C897E2D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DC582881ED78413A92C11F2B /* Products */ = {
+		1A1112CD72A74B4D9C897E2D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				11AE312A6AED405882E7BF7C /* Doppel.app */,
+				E34F6B6CC5D54292A6A10E54 /* Doppel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A79333DCEB584E80BAD9C33C /* Doppel */ = {
+		410880DE561A4254BCEAC611 /* Doppel */ = {
 			isa = PBXGroup;
 			children = (
-				F7861D0AC9A24B239C2CB9A2 /* App */,
-				BC6635E67B694F7CBDFD7F47 /* DesignSystem */,
-				66E2193CBECF4442AA87ACA9 /* Avatar */,
-				BEF91C6B44874C75AC2E8F8B /* Home */,
-				25E1A92A32D1420E9071BD49 /* Components */,
-				D6002FF284EF40F8826260F2 /* Resources */,
-				1EBF82E0BD22476CAC10AA6B /* Preview Content */,
+				3A7A6F2A77E144E9A3C336BA /* App */,
+				F9EC31D632D845D6BEA1E3E1 /* DesignSystem */,
+				55EAFE3353FA4F9D80D5E908 /* Avatar */,
+				3D52A5ABE3D34939B30BA0A7 /* Home */,
+				DF3CE3CC762A42529A1959E2 /* Components */,
+				2B6436FAE5D4426D850F5FCE /* Resources */,
+				C7E08A7F9AF04FA2B5EAA89C /* Preview Content */,
+				D3A5CF1D1CCF44A2825F507D /* Info.plist */,
 			);
 			path = Doppel;
 			sourceTree = "<group>";
 		};
-		F7861D0AC9A24B239C2CB9A2 /* App */ = {
+		3A7A6F2A77E144E9A3C336BA /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5C699230D3EA412687866D52 /* DoppelApp.swift */,
+				513B73C95CC54F6D907589BD /* DoppelApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		BC6635E67B694F7CBDFD7F47 /* DesignSystem */ = {
+		F9EC31D632D845D6BEA1E3E1 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				254E54B341544A4297B9B4F1 /* Theme.swift */,
-				7D7C605643A243C9A05E10B7 /* Typography.swift */,
-				524C43967EFA47A38DB8B955 /* Spacing.swift */,
-				F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */,
+				80150926586545868478E9B8 /* Theme.swift */,
+				E9913702F1D041609A3D472C /* Typography.swift */,
+				DE46C5A9B7884B84AA466989 /* Spacing.swift */,
+				22771F702C1A4A0488724911 /* ViewModifiers.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
-		66E2193CBECF4442AA87ACA9 /* Avatar */ = {
+		55EAFE3353FA4F9D80D5E908 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
-				DD3A092C06464956B307B424 /* AvatarModel.swift */,
-				BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */,
-				05DEF408C8594BB98879191D /* AvatarFace.swift */,
-				F24586DA2EA0455CABB7617D /* AvatarBody.swift */,
-				2E1672D3D74D42AD9061EF02 /* AvatarView.swift */,
-				61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */,
+				B16FDA3944614920824D3788 /* AvatarModel.swift */,
+				051BB1D6E5614286A3F841F3 /* AvatarStore.swift */,
+				2BBFF83BE2294B738D07C637 /* AvatarFace.swift */,
+				75DFEDCE86F7476EB0E0A62F /* AvatarBody.swift */,
+				79786040AEF9493A8389B093 /* AvatarView.swift */,
+				B17A44924EEB4E4DB456CA4E /* AvatarCustomizeView.swift */,
 			);
 			path = Avatar;
 			sourceTree = "<group>";
 		};
-		BEF91C6B44874C75AC2E8F8B /* Home */ = {
+		3D52A5ABE3D34939B30BA0A7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F5637EEB59E643B8AA4619CA /* HomeView.swift */,
+				C159CC0EB0CF445C90731B89 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		25E1A92A32D1420E9071BD49 /* Components */ = {
+		DF3CE3CC762A42529A1959E2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C488002306634C6B937AC1C1 /* GlowBackground.swift */,
-				F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */,
-				FD4D8D030985496986B468A5 /* IconButton.swift */,
-				EFE7C21AF12C464A854C2757 /* TraitPicker.swift */,
-				C7C378F4F9EB484A88E284B4 /* DayStrip.swift */,
+				4E9400D4D7754033820157EB /* GlowBackground.swift */,
+				E91D5CFE2AAF45ACA9397715 /* PrimaryButton.swift */,
+				025A4EA720A040F290B10C38 /* IconButton.swift */,
+				0ECB584D4FB74FAFAC40F7EC /* TraitPicker.swift */,
+				8693926F677243C7B00ADB6A /* DayStrip.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D6002FF284EF40F8826260F2 /* Resources */ = {
+		2B6436FAE5D4426D850F5FCE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				443EFD59091A408C9282CA3E /* Assets.xcassets */,
+				8EE3D4F4D6514E399E9CDCED /* Assets.xcassets */,
+				A6EADAE2BD914A28A02031BD /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1EBF82E0BD22476CAC10AA6B /* Preview Content */ = {
+		A6EADAE2BD914A28A02031BD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CEF14BC1769B405884017227 /* Preview Assets.xcassets */,
+				8DAA46DAF3E4438BA418AC3E /* Outfit-Regular.ttf */,
+				DD9756781148455CAAF37AA9 /* Outfit-Medium.ttf */,
+				7131DB0E7D2F4B2BA362A665 /* Outfit-SemiBold.ttf */,
+				56EFC20C36A347A48B09EF28 /* Outfit-Bold.ttf */,
+				0587A97869D942EDAB7060F8 /* Unbounded-Bold.ttf */,
+				C90E4EB308CB4ABE9573FDA9 /* Unbounded-ExtraBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C7E08A7F9AF04FA2B5EAA89C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				168539D8D17449BFB12F572A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -162,13 +190,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78ECB7E47D2840B4ACF28A7F /* Doppel */ = {
+		6D4B2EEBF3A24FEFAB6E0FAB /* Doppel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AF2CBE2637F5468380496942 /* Build configuration list for PBXNativeTarget "Doppel" */;
+			buildConfigurationList = ECD087C572534A1CB6AD72E5 /* Build configuration list for PBXNativeTarget "Doppel" */;
 			buildPhases = (
-				076F2FB75E654E568DA21DB7 /* Sources */,
-				0EFAD5D4564846B392177A92 /* Frameworks */,
-				56C61B2DAFF94F899F54DF04 /* Resources */,
+				53531FF4A2DD414180E8703C /* Sources */,
+				B485554BB18D46A9A581F4E4 /* Frameworks */,
+				98A633C5AC0F4CCFB46F7137 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -176,25 +204,25 @@
 			);
 			name = Doppel;
 			productName = Doppel;
-			productReference = 11AE312A6AED405882E7BF7C /* Doppel.app */;
+			productReference = E34F6B6CC5D54292A6A10E54 /* Doppel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B878E5585AC641018F20458B /* Project object */ = {
+		01F91B72BE4D4F3A982618EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					78ECB7E47D2840B4ACF28A7F = {
+					6D4B2EEBF3A24FEFAB6E0FAB = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 3E2C30E1A5F444C0A155728A /* Build configuration list for PBXProject "Doppel" */;
+			buildConfigurationList = 04744E27A56442739D9E1E8D /* Build configuration list for PBXProject "Doppel" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -202,56 +230,62 @@
 				en,
 				Base,
 			);
-			mainGroup = C9F62790119C4181882C5E7D;
-			productRefGroup = DC582881ED78413A92C11F2B /* Products */;
+			mainGroup = 5CED6EBC963B4A248D185179;
+			productRefGroup = 1A1112CD72A74B4D9C897E2D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78ECB7E47D2840B4ACF28A7F /* Doppel */,
+				6D4B2EEBF3A24FEFAB6E0FAB /* Doppel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		56C61B2DAFF94F899F54DF04 /* Resources */ = {
+		98A633C5AC0F4CCFB46F7137 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9CFDF38191A420E9560EF86 /* Assets.xcassets in Resources */,
+				9F84C8B6FE804487B19DBEF5 /* Assets.xcassets in Resources */,
+				569239B9475D4D5BBE3F1AF3 /* Outfit-Regular.ttf in Resources */,
+				3EAEE5CDFD8A46DC97600FB7 /* Outfit-Medium.ttf in Resources */,
+				81AE3DA1D2874DA3A231CFBC /* Outfit-SemiBold.ttf in Resources */,
+				3A15D35B59864599879DF0E4 /* Outfit-Bold.ttf in Resources */,
+				19772683F85D4DDDBCE73464 /* Unbounded-Bold.ttf in Resources */,
+				642756F5158C4855BA95966B /* Unbounded-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		076F2FB75E654E568DA21DB7 /* Sources */ = {
+		53531FF4A2DD414180E8703C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85074EA08A26444987F567F5 /* DoppelApp.swift in Sources */,
-				B7B9A0B2388F4675A931F516 /* Theme.swift in Sources */,
-				C3598A2D0E4046A4B666939C /* Typography.swift in Sources */,
-				2B94E29702AE496B9FDAFC54 /* Spacing.swift in Sources */,
-				FE6CFBE57050481C8D0FD320 /* ViewModifiers.swift in Sources */,
-				F4040CF17440445285925FE0 /* AvatarModel.swift in Sources */,
-				51522E677B5A4F9EB46DE25D /* AvatarStore.swift in Sources */,
-				C937431D72CD408CBE754433 /* AvatarFace.swift in Sources */,
-				2C2A5C2AFC644D968EA51907 /* AvatarBody.swift in Sources */,
-				1559DDF21C07494A8C34F5A3 /* AvatarView.swift in Sources */,
-				9083C2C269C44CEEBB590057 /* AvatarCustomizeView.swift in Sources */,
-				52E7D14DBEFC4F00B7A1E440 /* HomeView.swift in Sources */,
-				10F36E032D3B46EBB5AFEF26 /* GlowBackground.swift in Sources */,
-				A688C610D97C4E3097843B04 /* PrimaryButton.swift in Sources */,
-				B63A69E9DABD4C6780D28584 /* IconButton.swift in Sources */,
-				753E8CFDAF7842E2B2A439F8 /* TraitPicker.swift in Sources */,
-				503F0EB740A64569AE8DCB07 /* DayStrip.swift in Sources */,
+				016CF04036FE4F23A56DEB48 /* DoppelApp.swift in Sources */,
+				845EA038E66A44BB90D5AD07 /* Theme.swift in Sources */,
+				4D709DF684D2449E9D8A50DF /* Typography.swift in Sources */,
+				EF1A428548DC40118FE49C83 /* Spacing.swift in Sources */,
+				2845AA62E2854DC39AE1D9F4 /* ViewModifiers.swift in Sources */,
+				420B7EC38D80462690CA2AA2 /* AvatarModel.swift in Sources */,
+				AF002366214E42A3A67EFEE2 /* AvatarStore.swift in Sources */,
+				2FCD22D338F041808449289C /* AvatarFace.swift in Sources */,
+				FFA8B67F83FF47A98B98B94A /* AvatarBody.swift in Sources */,
+				F5BA0D23AFB84FDD97ED06BE /* AvatarView.swift in Sources */,
+				78C860B1A0F641878C067BFA /* AvatarCustomizeView.swift in Sources */,
+				7E367F1BAE4E48CB84A4811D /* HomeView.swift in Sources */,
+				F641FE18314242B8B4E1ED76 /* GlowBackground.swift in Sources */,
+				A6CDC58AF0C146AC86B6BBAA /* PrimaryButton.swift in Sources */,
+				B34980F362D44F5AA63509AF /* IconButton.swift in Sources */,
+				695EF703DD94472094A2B00F /* TraitPicker.swift in Sources */,
+				75B7A1E6C5BD4D1FA8CA5940 /* DayStrip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D08677BA893740F782BE5E46 /* Debug */ = {
+		63A6D60D911D49E3AA837C0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -314,7 +348,7 @@
 			};
 			name = Debug;
 		};
-		9FF3244C636E450E94E283A8 /* Release */ = {
+		9E6E098601E44D5A95BF5671 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -370,7 +404,7 @@
 			};
 			name = Release;
 		};
-		5FE273262FF34C5EAF752ACB /* Debug */ = {
+		14189864855444A3ACB30190 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -379,12 +413,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Doppel/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Doppel;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_FILE = Doppel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,7 +428,7 @@
 			};
 			name = Debug;
 		};
-		6A1DB2211E4246DE80FC19E8 /* Release */ = {
+		1D15E4D1CE8A4EFEAF0A4C75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -408,12 +437,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Doppel/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Doppel;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_FILE = Doppel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,25 +455,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E2C30E1A5F444C0A155728A /* Build configuration list for PBXProject "Doppel" */ = {
+		04744E27A56442739D9E1E8D /* Build configuration list for PBXProject "Doppel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D08677BA893740F782BE5E46 /* Debug */,
-				9FF3244C636E450E94E283A8 /* Release */,
+				63A6D60D911D49E3AA837C0E /* Debug */,
+				9E6E098601E44D5A95BF5671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AF2CBE2637F5468380496942 /* Build configuration list for PBXNativeTarget "Doppel" */ = {
+		ECD087C572534A1CB6AD72E5 /* Build configuration list for PBXNativeTarget "Doppel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5FE273262FF34C5EAF752ACB /* Debug */,
-				6A1DB2211E4246DE80FC19E8 /* Release */,
+				14189864855444A3ACB30190 /* Debug */,
+				1D15E4D1CE8A4EFEAF0A4C75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B878E5585AC641018F20458B /* Project object */;
+	rootObject = 01F91B72BE4D4F3A982618EB /* Project object */;
 }

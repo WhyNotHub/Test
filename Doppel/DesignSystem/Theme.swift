@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 extension Color {
     init(hex: UInt32, opacity: Double = 1) {
@@ -7,6 +8,22 @@ extension Color {
         let b = Double(hex & 0x0000FF) / 255
         self.init(red: r, green: g, blue: b, opacity: opacity)
     }
+
+    /// Blends toward `target` by `amount` (0 = self, 1 = target). Plain RGB
+    /// interpolation rather than HSL -- at the small amounts used for
+    /// avatar shading (8-20%) the difference isn't visible and this needs
+    /// no color-space conversion.
+    func mixed(toward target: Color, amount: Double) -> Color {
+        var r1: CGFloat = 0, g1: CGFloat = 0, b1: CGFloat = 0, a1: CGFloat = 0
+        var r2: CGFloat = 0, g2: CGFloat = 0, b2: CGFloat = 0, a2: CGFloat = 0
+        UIColor(self).getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+        UIColor(target).getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+        let t = CGFloat(amount)
+        return Color(red: r1 + (r2 - r1) * t, green: g1 + (g2 - g1) * t, blue: b1 + (b2 - b1) * t)
+    }
+
+    func lightened(by amount: Double) -> Color { mixed(toward: .white, amount: amount) }
+    func darkened(by amount: Double) -> Color { mixed(toward: .black, amount: amount) }
 }
 
 /// Core color tokens for Doppel. The app is designed dark-first: a near-black

@@ -86,7 +86,7 @@ struct HomeView: View {
                     .foregroundStyle(DoppelColor.textPrimary)
 
                 Text(monthYearTitle)
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .font(DoppelFont.bodyBold(12))
                     .foregroundStyle(DoppelColor.textSecondary)
                     .tracking(1.2)
             }
@@ -134,7 +134,6 @@ struct HomeView: View {
             HStack(spacing: DoppelSpacing.xs) {
                 Text(store.userName)
                     .font(DoppelFont.title(34))
-                    .fontWeight(.heavy)
                     .foregroundStyle(DoppelColor.textPrimary)
                 Image(systemName: "pencil")
                     .font(.system(size: 15, weight: .semibold))

@@ -23,12 +23,22 @@ struct HairView: View {
         }
     }
 
+    /// Every hair piece shares one gradient (light top -> darker base) so
+    /// the whole head of hair reads as one lit, rounded volume no matter
+    /// how many separate shapes it's built from.
+    private var hairFill: LinearGradient {
+        LinearGradient(
+            colors: [color.lightened(by: 0.22), color.darkened(by: 0.16)],
+            startPoint: UnitPoint(x: 0.2, y: 0), endPoint: UnitPoint(x: 0.65, y: 1)
+        )
+    }
+
     @ViewBuilder
     private var backContent: some View {
         if style == .long {
             ForEach(AvatarMetrics.mirror, id: \.self) { dir in
                 Capsule()
-                    .fill(color)
+                    .fill(hairFill)
                     .frame(width: headSize.width * 0.30, height: headSize.height * 1.15)
                     .position(
                         x: headCenter.x + dir * headSize.width * 0.40,
@@ -40,6 +50,14 @@ struct HairView: View {
 
     @ViewBuilder
     private var frontContent: some View {
+        ZStack {
+            frontShapes
+            hairSheen
+        }
+    }
+
+    @ViewBuilder
+    private var frontShapes: some View {
         switch style {
         case .shaved:
             EmptyView()
@@ -50,7 +68,7 @@ struct HairView: View {
                 capBand(heightFraction: 0.38, widthFraction: 1.0)
                 ForEach(AvatarMetrics.mirror, id: \.self) { dir in
                     RoundedRectangle(cornerRadius: headSize.width * 0.06, style: .continuous)
-                        .fill(color)
+                        .fill(hairFill)
                         .frame(width: headSize.width * 0.14, height: headSize.height * 0.30)
                         .position(
                             x: headCenter.x + dir * headSize.width * 0.44,
@@ -63,7 +81,7 @@ struct HairView: View {
                 capBand(heightFraction: 0.40, widthFraction: 1.06)
                 ForEach(AvatarMetrics.mirror, id: \.self) { dir in
                     Capsule()
-                        .fill(color)
+                        .fill(hairFill)
                         .frame(width: headSize.width * 0.22, height: headSize.height * 0.42)
                         .rotationEffect(.degrees(Double(dir) * 22))
                         .position(
@@ -76,7 +94,7 @@ struct HairView: View {
             ZStack {
                 ForEach(Array(curlOffsets.enumerated()), id: \.offset) { _, point in
                     Circle()
-                        .fill(color)
+                        .fill(hairFill)
                         .frame(width: headSize.width * 0.24, height: headSize.width * 0.24)
                         .position(
                             x: headCenter.x + point.0 * headSize.width,
@@ -90,15 +108,50 @@ struct HairView: View {
             ZStack {
                 capBand(heightFraction: 0.36, widthFraction: 1.02)
                 Circle()
-                    .fill(color)
+                    .fill(hairFill)
                     .frame(width: headSize.width * 0.24, height: headSize.width * 0.24)
                     .position(x: headCenter.x, y: headCenter.y - headSize.height * 0.62)
             }
         case .mohawk:
             Capsule()
-                .fill(color)
+                .fill(hairFill)
                 .frame(width: headSize.width * 0.16, height: headSize.height * 0.62)
                 .position(x: headCenter.x, y: headCenter.y - headSize.height * 0.42)
+        }
+    }
+
+    /// A thin, low-opacity highlight over the hair mass to suggest a
+    /// glossy surface catching light. Sized per-style rather than one
+    /// generic band -- a wide sheen over a narrow mohawk would spill onto
+    /// the face.
+    @ViewBuilder
+    private var hairSheen: some View {
+        let shine = Color.white.opacity(0.16)
+        switch style {
+        case .shaved:
+            EmptyView()
+        case .mohawk:
+            Capsule()
+                .fill(shine)
+                .frame(width: headSize.width * 0.06, height: headSize.height * 0.34)
+                .position(x: headCenter.x - headSize.width * 0.02, y: headCenter.y - headSize.height * 0.58)
+        case .curls:
+            ZStack {
+                Circle()
+                    .fill(shine)
+                    .frame(width: headSize.width * 0.09, height: headSize.width * 0.09)
+                    .position(x: headCenter.x - headSize.width * 0.08, y: headCenter.y - headSize.height * 0.36)
+                Circle()
+                    .fill(shine)
+                    .frame(width: headSize.width * 0.07, height: headSize.width * 0.07)
+                    .position(x: headCenter.x + headSize.width * 0.05, y: headCenter.y - headSize.height * 0.37)
+            }
+        default:
+            Capsule()
+                .fill(shine)
+                .frame(width: headSize.width * 0.5, height: headSize.height * 0.09)
+                .rotationEffect(.degrees(-18))
+                .position(x: headCenter.x - headSize.width * 0.08, y: headCenter.y - headSize.height * 0.62)
         }
     }
 
@@ -110,7 +163,7 @@ struct HairView: View {
         let overshoot = headSize.height * 0.05
 
         return RoundedRectangle(cornerRadius: headSize.width * 0.4, style: .continuous)
-            .fill(color)
+            .fill(hairFill)
             .frame(width: headSize.width * widthFraction, height: bandHeight)
             .position(x: headCenter.x, y: headTopY - overshoot + bandHeight / 2)
     }
@@ -186,20 +239,28 @@ struct TorsoView: View {
         }
     }
 
+    /// A touch darker than the lit face, suggesting the jaw's shadow.
     private var neck: some View {
         RoundedRectangle(cornerRadius: side * 0.03, style: .continuous)
-            .fill(avatar.skinTone.color)
+            .fill(avatar.skinTone.color.darkened(by: 0.06))
             .frame(width: side * 0.16, height: side * 0.16)
             .position(x: headCenter.x, y: headCenter.y + headSize.height * 0.46)
     }
 
+    /// Vertical gradient (lighter at the collar, darker toward the hem)
+    /// reads as soft fabric shading instead of a flat color block.
     private var base: some View {
         TorsoShape(
             neckWidthFraction: avatar.outfitStyle == .tank ? 0.24 : 0.19,
             shoulderWidthFraction: avatar.outfitStyle == .tank ? 0.56 : 0.70,
             collarDepthFraction: 0.10
         )
-        .fill(avatar.outfitColor.color)
+        .fill(
+            LinearGradient(
+                colors: [avatar.outfitColor.color.lightened(by: 0.14), avatar.outfitColor.color.darkened(by: 0.20)],
+                startPoint: .top, endPoint: .bottom
+            )
+        )
         .frame(width: torsoWidth, height: torsoHeight)
         .position(x: headCenter.x, y: torsoTopY + torsoHeight / 2)
     }

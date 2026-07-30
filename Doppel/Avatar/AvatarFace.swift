@@ -19,29 +19,81 @@ struct FaceView: View {
         ZStack {
             ears
             head
+            blush
             eyebrows
             eyes
+            nose
             mouth
         }
     }
 
+    /// Diagonal gradient (soft highlight upper-left, gentle falloff
+    /// lower-right) instead of a flat fill, so the face reads as a lit 3D
+    /// form rather than a cardboard cutout.
     private var head: some View {
         RoundedRectangle(cornerRadius: headSize.width * 0.42, style: .continuous)
-            .fill(avatar.skinTone.color)
+            .fill(
+                LinearGradient(
+                    colors: [avatar.skinTone.color.lightened(by: 0.16), avatar.skinTone.color.darkened(by: 0.14)],
+                    startPoint: .topLeading, endPoint: .bottomTrailing
+                )
+            )
             .frame(width: headSize.width, height: headSize.height)
             .position(headCenter)
     }
 
+    /// Slightly darker than the lit face so they read as receded, plus a
+    /// soft inner-ear shadow crescent for depth.
     private var ears: some View {
         ForEach(AvatarMetrics.mirror, id: \.self) { dir in
-            Circle()
-                .fill(avatar.skinTone.color)
-                .frame(width: side * 0.09, height: side * 0.09)
-                .position(
-                    x: headCenter.x + dir * (headSize.width / 2) * 0.96,
-                    y: headCenter.y + headSize.height * 0.05
-                )
+            let ecx = headCenter.x + dir * (headSize.width / 2) * 0.96
+            let ecy = headCenter.y + headSize.height * 0.05
+            ZStack {
+                Circle()
+                    .fill(avatar.skinTone.color.darkened(by: 0.05))
+                    .frame(width: side * 0.09, height: side * 0.09)
+                Ellipse()
+                    .fill(avatar.skinTone.color.darkened(by: 0.20))
+                    .opacity(0.4)
+                    .frame(width: side * 0.036, height: side * 0.052)
+                    .offset(x: dir * side * 0.006)
+            }
+            .position(x: ecx, y: ecy)
         }
+    }
+
+    /// Soft warm blush, low-opacity radial falloff.
+    private var blush: some View {
+        let blushY = headCenter.y + headSize.height * 0.15
+        return ForEach(AvatarMetrics.mirror, id: \.self) { dir in
+            Circle()
+                .fill(
+                    RadialGradient(
+                        colors: [Color(hex: 0xFF6E8F).opacity(0.22), Color(hex: 0xFF6E8F).opacity(0)],
+                        center: .center, startRadius: 0, endRadius: headSize.width * 0.15
+                    )
+                )
+                .frame(width: headSize.width * 0.30, height: headSize.width * 0.30)
+                .position(x: headCenter.x + dir * headSize.width * 0.30, y: blushY)
+        }
+    }
+
+    /// A tiny soft shadow rather than an outline, just enough to give the
+    /// face a bridge instead of reading as flat/faceless.
+    private var nose: some View {
+        let noseY = eyeCenterY + (mouthCenterY - eyeCenterY) * 0.58
+        return ZStack {
+            Ellipse()
+                .fill(avatar.skinTone.color.darkened(by: 0.14))
+                .opacity(0.55)
+                .frame(width: side * 0.032, height: side * 0.024)
+            Ellipse()
+                .fill(avatar.skinTone.color.lightened(by: 0.16))
+                .opacity(0.35)
+                .frame(width: side * 0.016, height: side * 0.032)
+                .offset(x: -side * 0.006, y: -side * 0.014)
+        }
+        .position(x: headCenter.x, y: noseY)
     }
 
     @ViewBuilder
@@ -68,10 +120,20 @@ struct FaceView: View {
                 .fill(DoppelColor.void)
                 .frame(width: baseSize * eyeWidthMultiplier, height: baseSize * eyeHeightMultiplier)
                 .overlay(
-                    Circle()
-                        .fill(Color.white.opacity(0.85))
-                        .frame(width: baseSize * 0.22, height: baseSize * 0.22)
-                        .offset(x: baseSize * 0.12, y: -baseSize * 0.12)
+                    // Primary catchlight (bigger, brighter, upper-left) plus
+                    // a smaller, dimmer secondary one lower-right -- two
+                    // dots read as a glossy lit surface; one dot reads
+                    // flat/plastic.
+                    ZStack {
+                        Circle()
+                            .fill(Color.white.opacity(0.92))
+                            .frame(width: baseSize * 0.23, height: baseSize * 0.23)
+                            .offset(x: baseSize * 0.13, y: -baseSize * 0.13)
+                        Circle()
+                            .fill(Color.white.opacity(0.45))
+                            .frame(width: baseSize * 0.10, height: baseSize * 0.10)
+                            .offset(x: -baseSize * 0.10, y: baseSize * 0.12)
+                    }
                 )
                 .scaleEffect(x: 1, y: blinking ? 0.12 : 1, anchor: .center)
         }
