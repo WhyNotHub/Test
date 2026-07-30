@@ -22,6 +22,9 @@ struct HomeView: View {
                 VStack(spacing: 0) {
                     topBar
 
+                    DayStrip()
+                        .padding(.top, DoppelSpacing.lg)
+
                     Spacer(minLength: DoppelSpacing.lg)
 
                     avatarHero

@@ -7,49 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EAE3ADBD7A141E9B115B6C0 /* DoppelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C65EC0663455EB5AC602C /* DoppelApp.swift */; };
-		5F05AB39A3BC40B7AD2FF1C3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A5BC9F0CE4279AC1341DF /* Theme.swift */; };
-		CD7B74F1BB4C4213B437E6B8 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABA44F17FE4DCBB924334E /* Typography.swift */; };
-		46868135AA5442CCA9357F32 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7250F5D94784BE196937FCE /* Spacing.swift */; };
-		55DBFB54599440889192FACA /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */; };
-		C583253E519D4351BD4870A9 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */; };
-		D7002180E33E49BA9E55F510 /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9225E0530F7844EC836D6AB5 /* AvatarStore.swift */; };
-		52F485B2182A43C9BA440C89 /* AvatarFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */; };
-		421B041673BC4C30BCD69D2D /* AvatarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85F32F74D24B61B4335585 /* AvatarBody.swift */; };
-		BCB2A497A1D1468BBC70F98D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390376877BF4D1B87CD2C7B /* AvatarView.swift */; };
-		901CF3DA94D54102A944F63E /* AvatarCustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */; };
-		B0540FBD8F3B4604ACC82ABD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD9D14F774ADE96615722 /* HomeView.swift */; };
-		674E5C5342FA461880F9C6DF /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032A36E374247048DD5A70F /* GlowBackground.swift */; };
-		8B014C34D70C452C9045C6D2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */; };
-		7F474C405B884F6696E11DEB /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */; };
-		F542EDDFA33542AC805B2F2E /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09411E6B1304CBB82E41D46 /* TraitPicker.swift */; };
-		1831089A7333419F9071CEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470A0B84489F4F5DBCA90371 /* Assets.xcassets */; };
+		85074EA08A26444987F567F5 /* DoppelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C699230D3EA412687866D52 /* DoppelApp.swift */; };
+		B7B9A0B2388F4675A931F516 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254E54B341544A4297B9B4F1 /* Theme.swift */; };
+		C3598A2D0E4046A4B666939C /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C605643A243C9A05E10B7 /* Typography.swift */; };
+		2B94E29702AE496B9FDAFC54 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524C43967EFA47A38DB8B955 /* Spacing.swift */; };
+		FE6CFBE57050481C8D0FD320 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */; };
+		F4040CF17440445285925FE0 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A092C06464956B307B424 /* AvatarModel.swift */; };
+		51522E677B5A4F9EB46DE25D /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */; };
+		C937431D72CD408CBE754433 /* AvatarFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEF408C8594BB98879191D /* AvatarFace.swift */; };
+		2C2A5C2AFC644D968EA51907 /* AvatarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24586DA2EA0455CABB7617D /* AvatarBody.swift */; };
+		1559DDF21C07494A8C34F5A3 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1672D3D74D42AD9061EF02 /* AvatarView.swift */; };
+		9083C2C269C44CEEBB590057 /* AvatarCustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */; };
+		52E7D14DBEFC4F00B7A1E440 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5637EEB59E643B8AA4619CA /* HomeView.swift */; };
+		10F36E032D3B46EBB5AFEF26 /* GlowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C488002306634C6B937AC1C1 /* GlowBackground.swift */; };
+		A688C610D97C4E3097843B04 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */; };
+		B63A69E9DABD4C6780D28584 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D8D030985496986B468A5 /* IconButton.swift */; };
+		753E8CFDAF7842E2B2A439F8 /* TraitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE7C21AF12C464A854C2757 /* TraitPicker.swift */; };
+		503F0EB740A64569AE8DCB07 /* DayStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C378F4F9EB484A88E284B4 /* DayStrip.swift */; };
+		B9CFDF38191A420E9560EF86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443EFD59091A408C9282CA3E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A3C65EC0663455EB5AC602C /* DoppelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoppelApp.swift; sourceTree = "<group>"; };
-		652A5BC9F0CE4279AC1341DF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		17ABA44F17FE4DCBB924334E /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		B7250F5D94784BE196937FCE /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
-		D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
-		9225E0530F7844EC836D6AB5 /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
-		2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarFace.swift; sourceTree = "<group>"; };
-		BC85F32F74D24B61B4335585 /* AvatarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBody.swift; sourceTree = "<group>"; };
-		9390376877BF4D1B87CD2C7B /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomizeView.swift; sourceTree = "<group>"; };
-		FD8CD9D14F774ADE96615722 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		5032A36E374247048DD5A70F /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
-		786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		A09411E6B1304CBB82E41D46 /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
-		470A0B84489F4F5DBCA90371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F945B170D6564359BC7A23D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5E2B2416B21B4C598D62E12F /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C699230D3EA412687866D52 /* DoppelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoppelApp.swift; sourceTree = "<group>"; };
+		254E54B341544A4297B9B4F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7D7C605643A243C9A05E10B7 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		524C43967EFA47A38DB8B955 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		DD3A092C06464956B307B424 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
+		BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
+		05DEF408C8594BB98879191D /* AvatarFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarFace.swift; sourceTree = "<group>"; };
+		F24586DA2EA0455CABB7617D /* AvatarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBody.swift; sourceTree = "<group>"; };
+		2E1672D3D74D42AD9061EF02 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomizeView.swift; sourceTree = "<group>"; };
+		F5637EEB59E643B8AA4619CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C488002306634C6B937AC1C1 /* GlowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBackground.swift; sourceTree = "<group>"; };
+		F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		FD4D8D030985496986B468A5 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		EFE7C21AF12C464A854C2757 /* TraitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitPicker.swift; sourceTree = "<group>"; };
+		C7C378F4F9EB484A88E284B4 /* DayStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStrip.swift; sourceTree = "<group>"; };
+		443EFD59091A408C9282CA3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEF14BC1769B405884017227 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11AE312A6AED405882E7BF7C /* Doppel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doppel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7E6D92CA4B764BBAB1C0562C /* Frameworks */ = {
+		0EFAD5D4564846B392177A92 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,99 +61,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC5D88920E794ACFB949C2DB = {
+		C9F62790119C4181882C5E7D = {
 			isa = PBXGroup;
 			children = (
-				E7FEF7C2ACFE4D40AEEBC6EC /* Doppel */,
-				304140A7F8144420A7491421 /* Products */,
+				A79333DCEB584E80BAD9C33C /* Doppel */,
+				DC582881ED78413A92C11F2B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		304140A7F8144420A7491421 /* Products */ = {
+		DC582881ED78413A92C11F2B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E2B2416B21B4C598D62E12F /* Doppel.app */,
+				11AE312A6AED405882E7BF7C /* Doppel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E7FEF7C2ACFE4D40AEEBC6EC /* Doppel */ = {
+		A79333DCEB584E80BAD9C33C /* Doppel */ = {
 			isa = PBXGroup;
 			children = (
-				F3275E9791B34C50BD147A06 /* App */,
-				ABF9E326CE3D4106AE819E37 /* DesignSystem */,
-				84941CE1881246C98205E46F /* Avatar */,
-				D014DB1F77734EFF9827EF84 /* Home */,
-				B97951CB26F641FDA3290228 /* Components */,
-				6255D19FA5334667A6E82C16 /* Resources */,
-				3967CC855F904A7EABB70C96 /* Preview Content */,
+				F7861D0AC9A24B239C2CB9A2 /* App */,
+				BC6635E67B694F7CBDFD7F47 /* DesignSystem */,
+				66E2193CBECF4442AA87ACA9 /* Avatar */,
+				BEF91C6B44874C75AC2E8F8B /* Home */,
+				25E1A92A32D1420E9071BD49 /* Components */,
+				D6002FF284EF40F8826260F2 /* Resources */,
+				1EBF82E0BD22476CAC10AA6B /* Preview Content */,
 			);
 			path = Doppel;
 			sourceTree = "<group>";
 		};
-		F3275E9791B34C50BD147A06 /* App */ = {
+		F7861D0AC9A24B239C2CB9A2 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				2A3C65EC0663455EB5AC602C /* DoppelApp.swift */,
+				5C699230D3EA412687866D52 /* DoppelApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		ABF9E326CE3D4106AE819E37 /* DesignSystem */ = {
+		BC6635E67B694F7CBDFD7F47 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				652A5BC9F0CE4279AC1341DF /* Theme.swift */,
-				17ABA44F17FE4DCBB924334E /* Typography.swift */,
-				B7250F5D94784BE196937FCE /* Spacing.swift */,
-				7D8D44BEC9E846809357EE5E /* ViewModifiers.swift */,
+				254E54B341544A4297B9B4F1 /* Theme.swift */,
+				7D7C605643A243C9A05E10B7 /* Typography.swift */,
+				524C43967EFA47A38DB8B955 /* Spacing.swift */,
+				F66873ADE7EB440BBAFD5211 /* ViewModifiers.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
-		84941CE1881246C98205E46F /* Avatar */ = {
+		66E2193CBECF4442AA87ACA9 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
-				D8835FAB0FC4443CB6C863F2 /* AvatarModel.swift */,
-				9225E0530F7844EC836D6AB5 /* AvatarStore.swift */,
-				2CBCE2E86939481C8D7983D0 /* AvatarFace.swift */,
-				BC85F32F74D24B61B4335585 /* AvatarBody.swift */,
-				9390376877BF4D1B87CD2C7B /* AvatarView.swift */,
-				69C25E2F4A934083BF0F1917 /* AvatarCustomizeView.swift */,
+				DD3A092C06464956B307B424 /* AvatarModel.swift */,
+				BDC38363D8594D18AA8C4B0C /* AvatarStore.swift */,
+				05DEF408C8594BB98879191D /* AvatarFace.swift */,
+				F24586DA2EA0455CABB7617D /* AvatarBody.swift */,
+				2E1672D3D74D42AD9061EF02 /* AvatarView.swift */,
+				61C112C85E7E40A0BA7F606E /* AvatarCustomizeView.swift */,
 			);
 			path = Avatar;
 			sourceTree = "<group>";
 		};
-		D014DB1F77734EFF9827EF84 /* Home */ = {
+		BEF91C6B44874C75AC2E8F8B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FD8CD9D14F774ADE96615722 /* HomeView.swift */,
+				F5637EEB59E643B8AA4619CA /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		B97951CB26F641FDA3290228 /* Components */ = {
+		25E1A92A32D1420E9071BD49 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5032A36E374247048DD5A70F /* GlowBackground.swift */,
-				786F42E1151A40C0B1E947C3 /* PrimaryButton.swift */,
-				941E0DA6E29B4FA39C80C2E3 /* IconButton.swift */,
-				A09411E6B1304CBB82E41D46 /* TraitPicker.swift */,
+				C488002306634C6B937AC1C1 /* GlowBackground.swift */,
+				F20C92FA05894A52B2F99DFB /* PrimaryButton.swift */,
+				FD4D8D030985496986B468A5 /* IconButton.swift */,
+				EFE7C21AF12C464A854C2757 /* TraitPicker.swift */,
+				C7C378F4F9EB484A88E284B4 /* DayStrip.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		6255D19FA5334667A6E82C16 /* Resources */ = {
+		D6002FF284EF40F8826260F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				470A0B84489F4F5DBCA90371 /* Assets.xcassets */,
+				443EFD59091A408C9282CA3E /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		3967CC855F904A7EABB70C96 /* Preview Content */ = {
+		1EBF82E0BD22476CAC10AA6B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F945B170D6564359BC7A23D7 /* Preview Assets.xcassets */,
+				CEF14BC1769B405884017227 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -159,13 +162,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		02651C5005C24288A7947693 /* Doppel */ = {
+		78ECB7E47D2840B4ACF28A7F /* Doppel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7955C77E43B042CF86745297 /* Build configuration list for PBXNativeTarget "Doppel" */;
+			buildConfigurationList = AF2CBE2637F5468380496942 /* Build configuration list for PBXNativeTarget "Doppel" */;
 			buildPhases = (
-				D137D79FE4B7453A8E6E5ACF /* Sources */,
-				7E6D92CA4B764BBAB1C0562C /* Frameworks */,
-				D7EE23754AF24A0D84CE4586 /* Resources */,
+				076F2FB75E654E568DA21DB7 /* Sources */,
+				0EFAD5D4564846B392177A92 /* Frameworks */,
+				56C61B2DAFF94F899F54DF04 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -173,25 +176,25 @@
 			);
 			name = Doppel;
 			productName = Doppel;
-			productReference = 5E2B2416B21B4C598D62E12F /* Doppel.app */;
+			productReference = 11AE312A6AED405882E7BF7C /* Doppel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1633A3B6799B4BD99D3BBE54 /* Project object */ = {
+		B878E5585AC641018F20458B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					02651C5005C24288A7947693 = {
+					78ECB7E47D2840B4ACF28A7F = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 9AF6D16E3D994A64BFEC8144 /* Build configuration list for PBXProject "Doppel" */;
+			buildConfigurationList = 3E2C30E1A5F444C0A155728A /* Build configuration list for PBXProject "Doppel" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,55 +202,56 @@
 				en,
 				Base,
 			);
-			mainGroup = DC5D88920E794ACFB949C2DB;
-			productRefGroup = 304140A7F8144420A7491421 /* Products */;
+			mainGroup = C9F62790119C4181882C5E7D;
+			productRefGroup = DC582881ED78413A92C11F2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				02651C5005C24288A7947693 /* Doppel */,
+				78ECB7E47D2840B4ACF28A7F /* Doppel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D7EE23754AF24A0D84CE4586 /* Resources */ = {
+		56C61B2DAFF94F899F54DF04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1831089A7333419F9071CEB3 /* Assets.xcassets in Resources */,
+				B9CFDF38191A420E9560EF86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D137D79FE4B7453A8E6E5ACF /* Sources */ = {
+		076F2FB75E654E568DA21DB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EAE3ADBD7A141E9B115B6C0 /* DoppelApp.swift in Sources */,
-				5F05AB39A3BC40B7AD2FF1C3 /* Theme.swift in Sources */,
-				CD7B74F1BB4C4213B437E6B8 /* Typography.swift in Sources */,
-				46868135AA5442CCA9357F32 /* Spacing.swift in Sources */,
-				55DBFB54599440889192FACA /* ViewModifiers.swift in Sources */,
-				C583253E519D4351BD4870A9 /* AvatarModel.swift in Sources */,
-				D7002180E33E49BA9E55F510 /* AvatarStore.swift in Sources */,
-				52F485B2182A43C9BA440C89 /* AvatarFace.swift in Sources */,
-				421B041673BC4C30BCD69D2D /* AvatarBody.swift in Sources */,
-				BCB2A497A1D1468BBC70F98D /* AvatarView.swift in Sources */,
-				901CF3DA94D54102A944F63E /* AvatarCustomizeView.swift in Sources */,
-				B0540FBD8F3B4604ACC82ABD /* HomeView.swift in Sources */,
-				674E5C5342FA461880F9C6DF /* GlowBackground.swift in Sources */,
-				8B014C34D70C452C9045C6D2 /* PrimaryButton.swift in Sources */,
-				7F474C405B884F6696E11DEB /* IconButton.swift in Sources */,
-				F542EDDFA33542AC805B2F2E /* TraitPicker.swift in Sources */,
+				85074EA08A26444987F567F5 /* DoppelApp.swift in Sources */,
+				B7B9A0B2388F4675A931F516 /* Theme.swift in Sources */,
+				C3598A2D0E4046A4B666939C /* Typography.swift in Sources */,
+				2B94E29702AE496B9FDAFC54 /* Spacing.swift in Sources */,
+				FE6CFBE57050481C8D0FD320 /* ViewModifiers.swift in Sources */,
+				F4040CF17440445285925FE0 /* AvatarModel.swift in Sources */,
+				51522E677B5A4F9EB46DE25D /* AvatarStore.swift in Sources */,
+				C937431D72CD408CBE754433 /* AvatarFace.swift in Sources */,
+				2C2A5C2AFC644D968EA51907 /* AvatarBody.swift in Sources */,
+				1559DDF21C07494A8C34F5A3 /* AvatarView.swift in Sources */,
+				9083C2C269C44CEEBB590057 /* AvatarCustomizeView.swift in Sources */,
+				52E7D14DBEFC4F00B7A1E440 /* HomeView.swift in Sources */,
+				10F36E032D3B46EBB5AFEF26 /* GlowBackground.swift in Sources */,
+				A688C610D97C4E3097843B04 /* PrimaryButton.swift in Sources */,
+				B63A69E9DABD4C6780D28584 /* IconButton.swift in Sources */,
+				753E8CFDAF7842E2B2A439F8 /* TraitPicker.swift in Sources */,
+				503F0EB740A64569AE8DCB07 /* DayStrip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		443821120D1F4A33A8284B96 /* Debug */ = {
+		D08677BA893740F782BE5E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -310,7 +314,7 @@
 			};
 			name = Debug;
 		};
-		6EDA4BA21AA1451FB63190ED /* Release */ = {
+		9FF3244C636E450E94E283A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -366,7 +370,7 @@
 			};
 			name = Release;
 		};
-		3286859027104D9CB9BF55C2 /* Debug */ = {
+		5FE273262FF34C5EAF752ACB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -395,7 +399,7 @@
 			};
 			name = Debug;
 		};
-		08D0C8C334504AE9BE9F68EC /* Release */ = {
+		6A1DB2211E4246DE80FC19E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -427,25 +431,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9AF6D16E3D994A64BFEC8144 /* Build configuration list for PBXProject "Doppel" */ = {
+		3E2C30E1A5F444C0A155728A /* Build configuration list for PBXProject "Doppel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				443821120D1F4A33A8284B96 /* Debug */,
-				6EDA4BA21AA1451FB63190ED /* Release */,
+				D08677BA893740F782BE5E46 /* Debug */,
+				9FF3244C636E450E94E283A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7955C77E43B042CF86745297 /* Build configuration list for PBXNativeTarget "Doppel" */ = {
+		AF2CBE2637F5468380496942 /* Build configuration list for PBXNativeTarget "Doppel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3286859027104D9CB9BF55C2 /* Debug */,
-				08D0C8C334504AE9BE9F68EC /* Release */,
+				5FE273262FF34C5EAF752ACB /* Debug */,
+				6A1DB2211E4246DE80FC19E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1633A3B6799B4BD99D3BBE54 /* Project object */;
+	rootObject = B878E5585AC641018F20458B /* Project object */;
 }
