@@ -12,7 +12,6 @@ struct HomeView: View {
     @State private var showRename = false
     @State private var draftName = ""
     @State private var showComingSoon = false
-    @State private var visibleDate = Calendar.current.startOfDay(for: Date())
 
     var body: some View {
         NavigationStack {
@@ -23,7 +22,7 @@ struct HomeView: View {
                 VStack(spacing: 0) {
                     topBar
 
-                    DayStrip(visibleDate: $visibleDate)
+                    DayStrip()
                         .padding(.top, DoppelSpacing.lg)
 
                     Spacer(minLength: DoppelSpacing.lg)
@@ -101,8 +100,17 @@ struct HomeView: View {
         .padding(.top, DoppelSpacing.sm)
     }
 
+    /// Always today's actual date — deliberately not tied to the day strip's
+    /// scroll position. The strip has its own independent highlight for
+    /// "what you've scrolled to"; this header is a fixed orientation anchor.
     private var monthYearTitle: String {
-        visibleDate.formatted(.dateTime.month(.wide).year()).uppercased()
+        // Composed explicitly (rather than chaining one FormatStyle) so the
+        // layout is exactly "Month Day Year" with no locale-inserted comma.
+        let today = Date()
+        let month = today.formatted(.dateTime.month(.wide))
+        let day = today.formatted(.dateTime.day())
+        let year = today.formatted(.dateTime.year())
+        return "\(month) \(day) \(year)".uppercased()
     }
 
     private var avatarHero: some View {
