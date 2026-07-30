@@ -80,14 +80,9 @@ struct HomeView: View {
 
     private var topBar: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(greeting)
-                    .font(DoppelFont.caption())
-                    .foregroundStyle(DoppelColor.textSecondary)
-                Text("Doppel")
-                    .font(DoppelFont.headline(22))
-                    .foregroundStyle(DoppelColor.textPrimary)
-            }
+            Text(greeting)
+                .font(DoppelFont.headline(20))
+                .foregroundStyle(DoppelColor.textPrimary)
 
             Spacer()
 
@@ -112,26 +107,21 @@ struct HomeView: View {
     }
 
     private var nameBlock: some View {
-        VStack(spacing: DoppelSpacing.xs) {
-            Button {
-                draftName = store.userName
-                showRename = true
-            } label: {
-                HStack(spacing: DoppelSpacing.xs) {
-                    Text(store.userName)
-                        .font(DoppelFont.title(30))
-                        .foregroundStyle(DoppelColor.textPrimary)
-                    Image(systemName: "pencil")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(DoppelColor.textTertiary)
-                }
+        Button {
+            draftName = store.userName
+            showRename = true
+        } label: {
+            HStack(spacing: DoppelSpacing.xs) {
+                Text(store.userName)
+                    .font(DoppelFont.title(34))
+                    .fontWeight(.heavy)
+                    .foregroundStyle(DoppelColor.textPrimary)
+                Image(systemName: "pencil")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(DoppelColor.textTertiary)
             }
-            .buttonStyle(PressableStyle())
-
-            Text("Your digital self is ready.")
-                .font(DoppelFont.body(15))
-                .foregroundStyle(DoppelColor.textSecondary)
         }
+        .buttonStyle(PressableStyle())
     }
 
     private var greeting: String {
