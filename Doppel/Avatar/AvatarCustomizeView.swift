@@ -112,7 +112,7 @@ struct AvatarCustomizeView: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    IconButton(systemName: "checkmark", filled: true) { dismiss() }
+                    IconButton(systemName: "checkmark", style: .solid) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     IconButton(systemName: "arrow.counterclockwise") { store.resetAvatar() }
