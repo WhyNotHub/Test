@@ -1,14 +1,14 @@
 import SwiftUI
 import UIKit
 
-/// A continuous day strip spanning roughly ±400 days around today — scroll
-/// past the end of a month and you're simply in the next one, no button
-/// required. There's no separate "selected" state: the highlighted day is
-/// whichever one is centered, but it only commits once scrolling settles
-/// (debounced ~140ms of no movement) rather than flickering between cells
-/// on every scroll tick — a live per-frame highlight looked chaotic during
-/// a fast drag. A subtle selection haptic fires on each settle. Tapping a
-/// day scrolls it to center; the same settle logic picks up the highlight.
+/// The days of the current calendar month, scrollable but bounded to this
+/// month (not a continuous multi-month range). There's no separate
+/// "selected" state: the highlighted day is whichever one is centered, but
+/// it only commits once scrolling settles (debounced ~140ms of no
+/// movement) rather than flickering between cells on every scroll tick — a
+/// live per-frame highlight looked chaotic during a fast drag. A subtle
+/// selection haptic fires on each settle. Tapping a day scrolls it to
+/// center; the same settle logic picks up the highlight.
 struct DayStrip: View {
     var onSelect: (Date) -> Void = { _ in }
 
@@ -24,8 +24,12 @@ struct DayStrip: View {
         self.onSelect = onSelect
 
         let cal = Calendar.current
-        let today = cal.startOfDay(for: Date())
-        days = (-400...400).compactMap { cal.date(byAdding: .day, value: $0, to: today) }
+        let now = Date()
+        let today = cal.startOfDay(for: now)
+        let startOfMonth = cal.date(from: cal.dateComponents([.year, .month], from: now)) ?? today
+        let dayRange = cal.range(of: .day, in: .month, for: now) ?? 1..<32
+        days = dayRange.compactMap { cal.date(byAdding: .day, value: $0 - 1, to: startOfMonth) }
+
         _currentDate = State(initialValue: today)
         _scrollTrackedDate = State(initialValue: today)
     }
