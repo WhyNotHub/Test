@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// Was a violet-pink gradient pill with a colored glow -- reads as a dated
+/// "2016 app store" cliche. Modern fintech/consumer references (Robinhood,
+/// Kalshi) favor stark black/white monochrome, bold clean type, and no
+/// colored glow at all -- confidence from contrast, not decoration. Pill
+/// shape stays (Robinhood's own CTAs are high-radius pills too); the
+/// fill, type and shadow are what changed.
 struct PrimaryButton: View {
     var title: String
     var systemImage: String? = "arrow.right"
@@ -9,24 +15,23 @@ struct PrimaryButton: View {
         Button(action: action) {
             HStack(spacing: DoppelSpacing.sm) {
                 Text(title)
-                    .font(DoppelFont.headline(17))
+                    .font(DoppelFont.bodyBold(15))
                 if let systemImage {
                     Image(systemName: systemImage)
                         .font(.system(size: 15, weight: .semibold))
                 }
             }
             .foregroundStyle(DoppelColor.void)
-            .padding(.vertical, DoppelSpacing.md)
+            .padding(.vertical, DoppelSpacing.md + 1)
             .frame(maxWidth: .infinity)
-            .background(DoppelGradient.signature, in: Capsule())
-            .glow(DoppelColor.violet, radius: 10, opacity: 0.22)
+            .background(DoppelColor.textPrimary, in: Capsule())
         }
         .buttonStyle(PressableStyle())
     }
 }
 
 #Preview {
-    PrimaryButton(title: "Enter Doppel") {}
+    PrimaryButton(title: "Bamboo") {}
         .padding()
         .background(DoppelColor.void)
 }

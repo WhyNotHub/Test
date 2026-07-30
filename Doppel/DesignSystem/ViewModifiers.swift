@@ -30,8 +30,4 @@ extension View {
     func glassSurface(radius: CGFloat = DoppelRadius.lg) -> some View {
         modifier(GlassSurface(radius: radius))
     }
-
-    func glow(_ color: Color, radius: CGFloat = 24, opacity: Double = 0.6) -> some View {
-        shadow(color: color.opacity(opacity), radius: radius)
-    }
 }

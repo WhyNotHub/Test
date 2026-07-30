@@ -35,7 +35,7 @@ struct HomeView: View {
 
                     Spacer()
 
-                    PrimaryButton(title: "Enter Doppel") {
+                    PrimaryButton(title: "Bamboo") {
                         showComingSoon = true
                     }
                     .padding(.bottom, DoppelSpacing.xl)

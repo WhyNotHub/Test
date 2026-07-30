@@ -56,14 +56,22 @@ struct AvatarView: View {
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .aspectRatio(1, contentMode: .fit)
-        .scaleEffect(breathing ? 1.025 : 1.0)
+        .scaleEffect(breathing ? 1.03 : 1.0)
         .onAppear { if animated { startAnimations() } }
         .onDisappear { stopAnimations() }
         .accessibilityLabel("Your Doppel avatar")
     }
 
     private func startAnimations() {
-        withAnimation(.easeInOut(duration: 3.4).repeatForever(autoreverses: true)) {
+        // .easeInOut is Core Animation's generic cubic-bezier(0.42,0,0.58,1)
+        // -- fine for a quick one-off transition, but for a slow, always-
+        // visible, endlessly-repeating loop like breathing, the difference
+        // from true sine easing reads as slightly mechanical. This is
+        // (0.37,0,0.63,1) -- the standard "easeInOutSine" curve -- applied
+        // forward and back each half of the cycle, which is what actually
+        // produces sine-like motion (repeatForever(autoreverses:) doesn't
+        // change the curve shape, just runs it twice per cycle).
+        withAnimation(.timingCurve(0.37, 0, 0.63, 1, duration: 3.4).repeatForever(autoreverses: true)) {
             breathing = true
         }
 
